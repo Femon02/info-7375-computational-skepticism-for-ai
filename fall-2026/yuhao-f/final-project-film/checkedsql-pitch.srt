@@ -1,0 +1,123 @@
+1
+00:00:00,000 --> 00:00:04,113
+Ask an AI to write SQL and you get a query that looks right.
+
+2
+00:00:04,133 --> 00:00:08,660
+The question I care about is: how would you know when it is wrong?
+
+3
+00:00:08,680 --> 00:00:23,789
+My final project will be CheckedSQL: a command-line tool that turns English questions into SQL for a public sample database, runs every query, and checks the result against an answer I verified by hand.
+
+4
+00:00:23,809 --> 00:00:30,230
+It will be a GitHub repository with a test set, saved results, and a failure analysis.
+
+5
+00:00:30,250 --> 00:00:34,401
+I looked at asking a chat assistant directly, and Vanna.ai.
+
+6
+00:00:34,421 --> 00:00:42,035
+They generate SQL, but they do not give me a small, reproducible record of which answers were wrong and why.
+
+7
+00:00:42,055 --> 00:00:43,166
+CheckedSQL will.
+
+8
+00:00:43,186 --> 00:00:48,750
+I am not claiming it is more accurate — only that its mistakes will be visible.
+
+9
+00:00:48,770 --> 00:00:52,674
+The reader is a hiring manager screening an SDE candidate.
+
+10
+00:00:52,694 --> 00:01:02,280
+In the first minute they will open the README, see how many questions matched and why the others failed, and rerun the check with one command.
+
+11
+00:01:02,300 --> 00:01:18,421
+It will show three things from this course: a prompt contract — the model must output exactly one SELECT or a refusal; verification — every query runs on a read-only database; and evaluation — a fixed test set with saved results.
+
+12
+00:01:18,441 --> 00:01:22,720
+The evidence will be the result files and the commit history.
+
+13
+00:01:22,740 --> 00:01:24,547
+Here is what exists today.
+
+14
+00:01:24,567 --> 00:01:32,066
+A test set of twenty questions and a draft eval script, written with Claude's help on October twenty-first.
+
+15
+00:01:32,086 --> 00:01:37,688
+That same day I ran every answer query on the real database, and all twenty ran.
+
+16
+00:01:37,708 --> 00:01:40,920
+The part that calls the model has not run yet.
+
+17
+00:01:40,940 --> 00:01:44,800
+In scope: read-only questions on one sample database.
+
+18
+00:01:44,820 --> 00:01:48,094
+Out: no web interface and no other databases.
+
+19
+00:01:48,114 --> 00:01:58,050
+The first piece I will make run is one question end to end; you will know it ran because a results file will show the SQL and a verdict.
+
+20
+00:01:58,070 --> 00:02:01,459
+What could sink it: the checker itself can be wrong.
+
+21
+00:02:01,479 --> 00:02:03,098
+It already happened once.
+
+22
+00:02:03,118 --> 00:02:11,621
+When I checked my own answers by hand, one of them turned out to be arbitrary: four years were tied, and my query just picked one.
+
+23
+00:02:11,641 --> 00:02:18,570
+So every gold answer gets checked by hand, and checker mistakes are counted as their own failure category.
+
+24
+00:02:18,590 --> 00:02:19,729
+Why this project?
+
+25
+00:02:19,749 --> 00:02:23,137
+It's a mix, and honestly it leans toward learning.
+
+26
+00:02:23,157 --> 00:02:33,634
+I'm a software engineering master's student applying for SDE roles, and I wanted something a stranger can check, not something that just looks impressive.
+
+27
+00:02:33,654 --> 00:02:42,767
+I taught myself Python and SQL basics from YouTube, but I don't have a repo that proves it yet, so this project will be that evidence.
+
+28
+00:02:42,787 --> 00:02:49,788
+What's new to me is calling Claude from my own code, building a test set, and measuring where it fails.
+
+29
+00:02:49,808 --> 00:02:54,150
+I chose something small on purpose, so I can finish it honestly.
+
+30
+00:02:54,170 --> 00:03:00,101
+CheckedSQL: not an AI that is always right, but one whose mistakes you can see.
+
+31
+00:03:00,121 --> 00:03:01,080
+I'm Yuhao Fu.

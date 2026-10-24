@@ -1,0 +1,440 @@
+{
+  "metadata": {
+    "slug": "checkedsql-pitch",
+    "title": "CheckedSQL — pitch",
+    "topic": "CHECKEDSQL · PITCH",
+    "skill": "show-tell",
+    "style_preset": "show-tell",
+    "author": "Yuhao Fu",
+    "narrator": "Yuhao Fu (first person, Kokoro am_michael)",
+    "persona": "Yuhao Fu",
+    "voice": "am_michael",
+    "voice_kokoro": "am_michael",
+    "engine": "kokoro",
+    "clock": "narration",
+    "register": "Plain",
+    "fps": 24,
+    "aspect_ratio": "16:9",
+    "width": 3840,
+    "height": 2160,
+    "caption_policy": "none",
+    "bookend_exempt": [
+      "cold-open",
+      "bvdt",
+      "bhtf"
+    ],
+    "bookend_exempt_reason": "Author's rules (Yuhao Fu, 2026-10-21): a first-person project pitch; no instructor persona, credit line, brand sting or locked outro. The spoken outro is beat 10's narration, nothing else.",
+    "audience": "course reviewers and hiring managers",
+    "source_doc": "my-pitch/beat_sheet.json (Yuhao Fu) + my-pitch/screenshots/ (two real terminal screenshots, 2026-10-21)",
+    "tags": [
+      "CheckedSQL",
+      "text-to-SQL",
+      "evaluation",
+      "pitch"
+    ],
+    "build": {
+      "at": "2026-10-21T13:44:35",
+      "cut": "master",
+      "filled": 10,
+      "of": 10,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B01",
+      "act": "Hook",
+      "lane": "manim",
+      "proof_gate": "SHOW",
+      "narration_text": "Ask an AI to write SQL and you get a query that looks right. The question I care about is: how would you know when it is wrong?",
+      "estimated_duration_s": 11.2,
+      "voice": "am_michael",
+      "engine": "kokoro",
+      "image_label": "constructed",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "visual_intent": "Simple drawing: a speech bubble with a question, an arrow, and a SQL query card with a question mark over it.",
+        "motion_claim": "Simple drawing: a speech bubble with a question, an arrow, and a SQL query card with a question mark over it.",
+        "on_screen_text_plan": "Looks right. Is it?",
+        "manim": {
+          "class": "B01_Hook"
+        }
+      },
+      "qc": {
+        "sparse_by_design": true,
+        "sparse_reason": "show-tell style: one drawn object or scene on a cream stage per beat, minimal labels, the voice carries the explanation. Only underfill and clustered are waived; edge-bleed, empty-frame and contrast still apply."
+      },
+      "audio_file": "mp3/beat-B01.mp3",
+      "actual_duration_s": 8.68,
+      "render_duration_s": 8.708333333333334,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B01.mp4",
+        "filled_by": "manim",
+        "at": "2026-10-21T13:44:35"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "act": "What it is",
+      "lane": "manim",
+      "proof_gate": "SHOW",
+      "narration_text": "My final project will be CheckedSQL: a command-line tool that turns English questions into SQL for a public sample database, runs every query, and checks the result against an answer I verified by hand. It will be a GitHub repository with a test set, saved results, and a failure analysis.",
+      "estimated_duration_s": 20.0,
+      "voice": "am_michael",
+      "engine": "kokoro",
+      "image_label": "constructed",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "visual_intent": "Pipeline drawing: question → Claude → SQL → database → compare with checked answer → MATCH / WRONG.",
+        "motion_claim": "Pipeline drawing: question → Claude → SQL → database → compare with checked answer → MATCH / WRONG.",
+        "on_screen_text_plan": "question → SQL → run → compare",
+        "manim": {
+          "class": "B02_Pipeline"
+        }
+      },
+      "qc": {
+        "sparse_by_design": true,
+        "sparse_reason": "show-tell style: one drawn object or scene on a cream stage per beat, minimal labels, the voice carries the explanation. Only underfill and clustered are waived; edge-bleed, empty-frame and contrast still apply."
+      },
+      "audio_file": "mp3/beat-B02.mp3",
+      "actual_duration_s": 21.57,
+      "render_duration_s": 21.583333333333332,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B02.mp4",
+        "filled_by": "manim",
+        "at": "2026-10-21T13:44:35"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "Why care / alternatives",
+      "lane": "manim",
+      "proof_gate": "SHOW",
+      "narration_text": "I looked at asking a chat assistant directly, and Vanna.ai. They generate SQL, but they do not give me a small, reproducible record of which answers were wrong and why. CheckedSQL will. I am not claiming it is more accurate — only that its mistakes will be visible.",
+      "estimated_duration_s": 19.2,
+      "voice": "am_michael",
+      "engine": "kokoro",
+      "image_label": "constructed",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "visual_intent": "Two boxes side by side: 'generates SQL' vs 'generates SQL + shows every failure'.",
+        "motion_claim": "Two boxes side by side: 'generates SQL' vs 'generates SQL + shows every failure'.",
+        "on_screen_text_plan": "Not more accurate. More checkable.",
+        "manim": {
+          "class": "B03_TwoBoxes"
+        }
+      },
+      "qc": {
+        "sparse_by_design": true,
+        "sparse_reason": "show-tell style: one drawn object or scene on a cream stage per beat, minimal labels, the voice carries the explanation. Only underfill and clustered are waived; edge-bleed, empty-frame and contrast still apply."
+      },
+      "audio_file": "mp3/beat-B03.mp3",
+      "actual_duration_s": 18.52,
+      "render_duration_s": 18.541666666666668,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B03.mp4",
+        "filled_by": "manim",
+        "at": "2026-10-21T13:44:35"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "act": "Who opens it",
+      "lane": "manim",
+      "proof_gate": "SHOW",
+      "narration_text": "The reader is a hiring manager screening an SDE candidate. In the first minute they will open the README, see how many questions matched and why the others failed, and rerun the check with one command.",
+      "estimated_duration_s": 14.4,
+      "voice": "am_michael",
+      "engine": "kokoro",
+      "image_label": "constructed",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "visual_intent": "A stick-figure reviewer, a README page, a stopwatch at 60 seconds.",
+        "motion_claim": "A stick-figure reviewer, a README page, a stopwatch at 60 seconds.",
+        "on_screen_text_plan": "60 seconds: read, see results, rerun",
+        "manim": {
+          "class": "B04_Reviewer"
+        }
+      },
+      "qc": {
+        "sparse_by_design": true,
+        "sparse_reason": "show-tell style: one drawn object or scene on a cream stage per beat, minimal labels, the voice carries the explanation. Only underfill and clustered are waived; edge-bleed, empty-frame and contrast still apply."
+      },
+      "audio_file": "mp3/beat-B04.mp3",
+      "actual_duration_s": 13.53,
+      "render_duration_s": 13.541666666666666,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B04.mp4",
+        "filled_by": "manim",
+        "at": "2026-10-21T13:44:35"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "act": "What it proves",
+      "lane": "manim",
+      "proof_gate": "SHOW",
+      "narration_text": "It will show three things from this course: a prompt contract — the model must output exactly one SELECT or a refusal; verification — every query runs on a read-only database; and evaluation — a fixed test set with saved results. The evidence will be the result files and the commit history.",
+      "estimated_duration_s": 20.8,
+      "voice": "am_michael",
+      "engine": "kokoro",
+      "image_label": "constructed",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "visual_intent": "Three icons: a contract, a checkmark, a bar chart.",
+        "motion_claim": "Three icons: a contract, a checkmark, a bar chart.",
+        "on_screen_text_plan": "contract · verification · evaluation",
+        "manim": {
+          "class": "B05_ThreeThings"
+        }
+      },
+      "qc": {
+        "sparse_by_design": true,
+        "sparse_reason": "show-tell style: one drawn object or scene on a cream stage per beat, minimal labels, the voice carries the explanation. Only underfill and clustered are waived; edge-bleed, empty-frame and contrast still apply."
+      },
+      "audio_file": "mp3/beat-B05.mp3",
+      "actual_duration_s": 20.44,
+      "render_duration_s": 20.458333333333332,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B05.mp4",
+        "filled_by": "manim",
+        "at": "2026-10-21T13:44:35"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "act": "What exists today (honesty beat)",
+      "lane": "manim",
+      "proof_gate": "SHOW",
+      "narration_text": "Here is what exists today. A test set of twenty questions and a draft eval script, written with Claude's help on October twenty-first. That same day I ran every answer query on the real database, and all twenty ran. The part that calls the model has not run yet.",
+      "estimated_duration_s": 19.6,
+      "voice": "am_michael",
+      "engine": "kokoro",
+      "image_label": "real screenshot",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "visual_intent": "Real screenshot of the --check-gold terminal output, taken 2026-10-21, with the date shown as a caption.",
+        "motion_claim": "Real screenshot of the --check-gold terminal output, taken 2026-10-21, with the date shown as a caption.",
+        "on_screen_text_plan": "EXISTS: checked test set, draft script · NOT YET: model run",
+        "manim": {
+          "class": "B06_ExistsToday"
+        },
+        "evidence": {
+          "file": "assets/shot-check-gold-2026-10-21.png",
+          "taken": "2026-10-21",
+          "kind": "real terminal screenshot, unedited"
+        }
+      },
+      "qc": {
+        "sparse_by_design": true,
+        "sparse_reason": "show-tell style: one drawn object or scene on a cream stage per beat, minimal labels, the voice carries the explanation. Only underfill and clustered are waived; edge-bleed, empty-frame and contrast still apply.",
+        "typography_regions": [
+          {
+            "label": "caption: date + real screenshot tag",
+            "box": [
+              0.057,
+              0.8562,
+              0.943,
+              0.9688
+            ]
+          },
+          {
+            "label": "exists / not yet labels",
+            "box": [
+              0.057,
+              0.0312,
+              0.943,
+              0.1437
+            ]
+          }
+        ],
+        "typography_reason": "Real terminal screenshot (2026-10-21): its text is captured image content at capture size, not designed typography. Only the authored caption and labels are checked.",
+        "typography_fill": "#F2F0E9"
+      },
+      "audio_file": "mp3/beat-B06.mp3",
+      "actual_duration_s": 18.2,
+      "render_duration_s": 18.208333333333332,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B06.mp4",
+        "filled_by": "manim",
+        "at": "2026-10-21T13:44:35"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "act": "In / out / first",
+      "lane": "manim",
+      "proof_gate": "SHOW",
+      "narration_text": "In scope: read-only questions on one sample database. Out: no web interface and no other databases. The first piece I will make run is one question end to end; you will know it ran because a results file will show the SQL and a verdict.",
+      "estimated_duration_s": 18.0,
+      "voice": "am_michael",
+      "engine": "kokoro",
+      "image_label": "constructed",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "visual_intent": "Three columns: IN, OUT, FIRST.",
+        "motion_claim": "Three columns: IN, OUT, FIRST.",
+        "on_screen_text_plan": "IN · OUT · FIRST",
+        "manim": {
+          "class": "B07_Scope"
+        }
+      },
+      "qc": {
+        "sparse_by_design": true,
+        "sparse_reason": "show-tell style: one drawn object or scene on a cream stage per beat, minimal labels, the voice carries the explanation. Only underfill and clustered are waived; edge-bleed, empty-frame and contrast still apply."
+      },
+      "audio_file": "mp3/beat-B07.mp3",
+      "actual_duration_s": 17.13,
+      "render_duration_s": 17.166666666666668,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B07.mp4",
+        "filled_by": "manim",
+        "at": "2026-10-21T13:44:35"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "act": "Risk",
+      "lane": "manim",
+      "proof_gate": "SHOW",
+      "narration_text": "What could sink it: the checker itself can be wrong. It already happened once. When I checked my own answers by hand, one of them turned out to be arbitrary: four years were tied, and my query just picked one. So every gold answer gets checked by hand, and checker mistakes are counted as their own failure category.",
+      "estimated_duration_s": 23.2,
+      "voice": "am_michael",
+      "engine": "kokoro",
+      "image_label": "real screenshot",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "visual_intent": "Real screenshot of the tie: 2009 to 2012 all at 83 invoices, taken 2026-10-21. Then the magnifying glass over the checker box.",
+        "motion_claim": "Real screenshot of the tie: 2009 to 2012 all at 83 invoices, taken 2026-10-21. Then the magnifying glass over the checker box.",
+        "on_screen_text_plan": "Who checks the checker?",
+        "manim": {
+          "class": "B08_Risk"
+        },
+        "evidence": {
+          "file": "assets/shot-tie-2026-10-21.png",
+          "taken": "2026-10-21",
+          "kind": "real terminal screenshot, unedited"
+        }
+      },
+      "qc": {
+        "sparse_by_design": true,
+        "sparse_reason": "show-tell style: one drawn object or scene on a cream stage per beat, minimal labels, the voice carries the explanation. Only underfill and clustered are waived; edge-bleed, empty-frame and contrast still apply.",
+        "typography_regions": [
+          {
+            "label": "caption: date + real screenshot tag",
+            "box": [
+              0.057,
+              0.8562,
+              0.5633,
+              0.9688
+            ]
+          },
+          {
+            "label": "checker label + constructed tag",
+            "box": [
+              0.5844,
+              0.0312,
+              0.943,
+              0.9688
+            ]
+          }
+        ],
+        "typography_reason": "Real terminal screenshot (2026-10-21): its text is captured image content at capture size, not designed typography. Only the authored caption and labels are checked.",
+        "typography_fill": "#F2F0E9"
+      },
+      "audio_file": "mp3/beat-B08.mp3",
+      "actual_duration_s": 20.52,
+      "render_duration_s": 20.541666666666668,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B08.mp4",
+        "filled_by": "manim",
+        "at": "2026-10-21T13:44:35"
+      }
+    },
+    {
+      "beat_id": "B09",
+      "act": "Why this project",
+      "lane": "manim",
+      "proof_gate": "SHOW",
+      "narration_text": "Why this project? It's a mix, and honestly it leans toward learning. I'm a software engineering master's student applying for SDE roles, and I wanted something a stranger can check, not something that just looks impressive. I taught myself Python and SQL basics from YouTube, but I don't have a repo that proves it yet, so this project will be that evidence. What's new to me is calling Claude from my own code, building a test set, and measuring where it fails. I chose something small on purpose, so I can finish it honestly.",
+      "estimated_duration_s": 37.6,
+      "voice": "am_michael",
+      "engine": "kokoro",
+      "image_label": "constructed",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "visual_intent": "Two piles: 'already have' and 'learning'.",
+        "motion_claim": "Two piles: 'already have' and 'learning'.",
+        "on_screen_text_plan": "have: Python, SQL (self-taught) · learning: API, eval, failure analysis",
+        "manim": {
+          "class": "B09_WhyThis"
+        }
+      },
+      "qc": {
+        "sparse_by_design": true,
+        "sparse_reason": "show-tell style: one drawn object or scene on a cream stage per beat, minimal labels, the voice carries the explanation. Only underfill and clustered are waived; edge-bleed, empty-frame and contrast still apply."
+      },
+      "audio_file": "mp3/beat-B09.mp3",
+      "actual_duration_s": 35.58,
+      "render_duration_s": 35.583333333333336,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B09.mp4",
+        "filled_by": "manim",
+        "at": "2026-10-21T13:44:35"
+      }
+    },
+    {
+      "beat_id": "B10",
+      "act": "Close",
+      "lane": "manim",
+      "proof_gate": "SHOW",
+      "narration_text": "CheckedSQL: not an AI that is always right, but one whose mistakes you can see. I'm Yuhao Fu.",
+      "estimated_duration_s": 7.2,
+      "voice": "am_michael",
+      "engine": "kokoro",
+      "image_label": "constructed",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "visual_intent": "The pipeline drawing again, with the WRONG branch highlighted.",
+        "motion_claim": "The pipeline drawing again, with the WRONG branch highlighted.",
+        "on_screen_text_plan": "CheckedSQL — mistakes you can see",
+        "manim": {
+          "class": "B10_Close"
+        }
+      },
+      "qc": {
+        "sparse_by_design": true,
+        "sparse_reason": "show-tell style: one drawn object or scene on a cream stage per beat, minimal labels, the voice carries the explanation. Only underfill and clustered are waived; edge-bleed, empty-frame and contrast still apply."
+      },
+      "audio_file": "mp3/beat-B10.mp3",
+      "actual_duration_s": 6.93,
+      "render_duration_s": 6.958333333333333,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B10.mp4",
+        "filled_by": "manim",
+        "at": "2026-10-21T13:44:35"
+      }
+    }
+  ]
+}
