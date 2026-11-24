@@ -1,7 +1,7 @@
 # FACTCHECK — checkedsql-film
 
 Status: claims checked by Claude (agent) on 2026-11-24 against the sources in SOURCES.md and the CheckedSQL repo.
-Plan and narration approved by Yuhao Fu on 2026-11-24 ("我都同意"); final watch-through sign-off pending.
+Plan and narration approved by Yuhao Fu on 2026-11-24 ("我都同意"); signed off after watching the film, 2026-11-24 ("我觉得ok了").
 
 | # | Beat | Claim | Verdict | Source | Fix |
 |---|---|---|---|---|---|
