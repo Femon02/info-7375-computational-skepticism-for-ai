@@ -1,8 +1,15 @@
-# SOURCES — checkedsql-pitch
+# SOURCES — checkedsql-film
 
 | Source | What it supplies |
 |---|---|
-| `../beat_sheet.json` (Yuhao Fu, author) | All ten narration lines, verbatim; the visual plan and on-screen text per beat. Beat 3's `[FILL IN: …]` placeholder replaced with its own example text ("asking a chat assistant directly, and Vanna.ai") on Yuhao's instruction, 2026-10-21. |
-| `../screenshots/截屏2026-10-21 12.49.31.png` → `assets/shot-check-gold-2026-10-21.png` | Beat 6: real terminal output of `run_eval.py --db Chinook_Sqlite.sqlite --check-gold`, 20 questions, taken 2026-10-21. Copied byte-identical (sha256 10169c01…6489). |
-| `../screenshots/截屏2026-10-21 12.46.54.png` → `assets/shot-tie-2026-10-21.png` | Beat 8: real terminal output: `Gold SQL errors: 0/20` and the `sqlite3` invoices-per-year query showing 2009–2012 tied at 83, taken 2026-10-21. Copied byte-identical (sha256 4fac05e7…c16c). |
-| `icons/logos/{claude,github,python}/*-01.png` (toolkit) | Marks for Claude (beats 2, 9, 10), GitHub (beats 2, 9), Python (beat 9) — LOGO LAW. |
+| `../film_beat_sheet.json` (Yuhao Fu, author; drafted with Claude 2026-11-24) | All fourteen narration lines and the visual plan, in the course brief's four parts. |
+| Course email "What your project film needs to show" (Professor Bear, 2026-11) | The four-part structure: executive summary, introduction, methods, evaluation. |
+| Yu et al., "Spider", EMNLP 2018, https://arxiv.org/abs/1809.08887 | B03: 10,181 questions, 200 databases, 2018. |
+| Li et al., "Can LLM Already Serve as A Database Interface? (BIRD)", NeurIPS 2023, https://arxiv.org/abs/2305.03111 | B03: 12,751 question–SQL pairs; ChatGPT 40.08% execution accuracy vs human 92.96% (abstract). |
+| Zhong, Yu, Klein, "Semantic Evaluation for Text-to-SQL with Distilled Test Suites", EMNLP 2020, https://arxiv.org/abs/2010.02840 | B04, B13: single-database denotation evaluation "might create false positives"; fix: a distilled suite of databases. |
+| Vanna, https://github.com/vanna-ai/vanna | B05: open-source (MIT) library to chat with a SQL database and get SQL from an LLM. |
+| `assets/shot-tie-2026-10-21.png` (= `../checkedsql-pitch/assets/`, the author's screenshot) | B09: 2009–2012 tied at 83 invoices, 2026-10-21. |
+| `evidence/run-replay.txt` → `assets/out-run-2026-11-24.png` | B12: real stdout of `python -m checkedsql run --replies replays/claude-code-subagents.json`, captured 2026-11-24 at checkedsql commit 4a3c927 (`evidence/captured-at.txt`). |
+| `evidence/check-wrong.txt` → `assets/out-check-wrong-2026-11-24.png` | B13: real stdout of `python -m checkedsql check-wrong`, same capture. |
+| https://github.com/Femon02/checkedsql (README, code, `results/run_20261106-170720.*`) | B07, B08, B10, B11: Chinook data, 20 questions, contract, read-only + 5 s limit, replay method, metrics. |
+| `icons/logos/{claude,claude-code,chatgpt,python,sqlite}/*-01.png` (toolkit) | Marks for Claude (B01, B08, B14), Claude Code (B10), ChatGPT (B03), Python and SQLite (B10): LOGO LAW. |

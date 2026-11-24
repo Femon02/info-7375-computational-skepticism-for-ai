@@ -1,57 +1,87 @@
 # PROJECT-BRIEF — CheckedSQL
 
-**1. What is it?**
-CheckedSQL will be a command-line tool that turns English questions into SQL for a public sample database
-(Chinook, in SQLite), runs every query, and checks the result against an answer I verified by hand. When it is
-done it will be a GitHub repository with a test set, saved results, and a failure analysis.
+Written in the four parts of the course brief, in its order. The detail is in the appendix, not in the summary.
 
-**2. Why would anyone care?**
-I looked at asking a chat assistant directly, and Vanna.ai. They generate SQL, but they do not give me a small,
-reproducible record of which answers were wrong and why. CheckedSQL will. I am not claiming it is more accurate,
-only that its mistakes will be visible: every question gets a saved SQL query, a result, and a verdict against a
-hand-checked answer.
+## 1. Executive summary: what am I doing, and why would anybody care?
 
-**3. Who opens it, and what do they do?**
-The reader is a hiring manager screening an SDE candidate. In the first minute they will open the README, see how
-many questions matched and why the others failed, and rerun the check with one command.
+When you ask an AI to write SQL, you get a query that looks right. **CheckedSQL** tells you when it isn't. It takes
+the AI's query, runs it on a real database, and compares the answer with one I checked by hand.
 
-**4. What does it prove about me?**
-Three things from this course. A prompt contract: the model must output exactly one SELECT, or a refusal.
-Verification: every query runs on a read-only database. Evaluation: a fixed test set with saved results. The
-evidence will be the result files and the commit history. A reviewer could fairly conclude that I can build a small
-LLM tool with a checkable contract and measure where it fails; not that it is accurate on SQL in general.
+Why care: a wrong query doesn't crash. It returns a number that looks just as confident as the right one.
+CheckedSQL makes those mistakes visible, and it goes one step further by checking whether the checker itself
+can be fooled.
 
-**5. In, out, first.**
-In: read-only questions on one sample database. Out: no web interface and no other databases. First: one question
-end to end. You will know it ran because a results file will show the SQL and a verdict.
+## 2. Introduction: what have other people done?
 
-**6. What could sink it?**
-The checker itself can be wrong. It already happened once: when I checked my own answers by hand, one turned out
-to be arbitrary. Invoices per year are tied at 83 for 2009, 2010, 2011 and 2012, and my query just picked one.
-So every gold answer gets checked by hand, and checker mistakes are counted as their own failure category.
+- **Benchmarks.** Spider (Yu et al., EMNLP 2018) has 10,181 questions over 200 databases. BIRD (Li et al.,
+  NeurIPS 2023) has 12,751 question–SQL pairs on larger, messier data (95 databases, 33.4 GB). In BIRD's original
+  paper, ChatGPT reached 40.08% execution accuracy, against 92.96% for people.
+- **The checker can be wrong.** Zhong, Yu and Klein (EMNLP 2020) showed that executing a query on a single
+  database "might create false positives": a wrong query can happen to return the same answer as the gold one.
+  Their fix, test-suite accuracy, runs each query on a distilled suite of many databases.
+- **Tools.** Open-source libraries such as Vanna let you chat with a database and get SQL back from an LLM.
+  They help you write queries. They don't hand you a record of which answers were wrong.
 
-**7. Why this project?**
-A mix, and honestly it leans toward learning. I am a software engineering master's student applying for SDE roles,
-and I wanted something a stranger can check, not something that just looks impressive.
-- *Skills I already have:* Python and SQL basics, self-taught from YouTube. Evidence so far: the gold-answer check
-  I ran on 2026-10-21 (screenshots in the film); I do not yet have a repository that proves these skills. This
-  project will be that evidence.
-- *Skills that are new to me:* calling Claude from my own code, building a test set, and measuring where it fails
-  (evaluation and failure analysis).
-I chose something small on purpose, so I can finish it honestly.
+**Why mine still matters.** It isn't a new benchmark, and it isn't more accurate. It's small enough that one person
+can read every question, check every answer, and rerun everything with one command. It also reports the checker's
+own blind spots as results, instead of hiding them inside a single accuracy number.
 
-**Stack:** Python, SQLite (Chinook sample database), Claude API.
+## 3. Methods: how am I doing it?
 
-## Exists today (2026-10-21, shown in the film)
-- A test set of twenty English questions, each with a gold (hand-written) SQL answer.
-- A draft evaluation script, `run_eval.py`, written with Claude's help, with a `--check-gold` mode.
-- A run of every gold query on the real Chinook database: all twenty ran (`Gold SQL errors: 0/20`).
-- One checker problem found by hand: the four-way tie in invoices per year (2009–2012, 83 each).
-- This pitch film.
+1. **Data.** Chinook, a free public sample database of a made-up music store (MIT licence). I wrote 20 English
+   questions and a gold SQL answer for each, and checked every gold answer by hand.
+2. **One question, step by step.** The model sees the database schema and a strict contract: reply with exactly
+   one SELECT statement, or exactly `CANNOT_ANSWER`. CheckedSQL then:
+   - checks the contract, recording a violation rather than repairing it;
+   - runs the query on a read-only copy, with a 5-second limit and a cap of 10,000 rows;
+   - compares the rows with the gold answer.
+3. **Checking the checker.** CheckedSQL also tests its own answer key:
+   - `check-gold` flags any gold answer that is an arbitrary pick between ties. One was: on 2026-10-21, four years
+     were tied at 83 invoices.
+   - `check-wrong` scores a list of deliberately wrong answers, all of which should be caught.
+4. **What I have.**
+   - The code is Python and SQLite, all free.
+   - I don't have API credits yet. So this run was a *replay*: 20 fresh Claude Opus 5.5 subagents inside Claude Code,
+     each seeing only the rules and one question. Their replies were recorded verbatim and scored by the same code.
+   - The API version is built and tested offline against a fake client, and runs with one command once I have a key.
 
-## Will exist
-- The part that calls the model (not run yet), under the prompt contract: exactly one SELECT or a refusal.
-- Read-only execution of every model query, and a results file per run with the SQL and a verdict.
-- A hand check of every gold answer, with checker mistakes counted as their own failure category.
-- A README a reviewer can read in a minute, a one-command rerun, saved results, and a failure analysis.
-- The public GitHub repository holding all of it, with its commit history.
+## 4. Evaluation: how will I know it did a good job?
+
+I measure three things:
+- how many answers match the gold answer;
+- how many replies keep the contract;
+- how many deliberately wrong answers the checker catches.
+
+The checker **works** if every wrong answer is caught. It **fails** if a wrong answer can score as right.
+
+**Results (replay run, 2026-11-06; output re-captured 2026-11-24):**
+- **20/20** answers matched, and **20/20** kept the contract. A perfect score on 20 questions mostly tells me the
+  questions are easy.
+- The checker caught **7 of 8** wrong answers. It missed question 16, revenue as unit price × quantity: every one
+  of the 2,240 `InvoiceLine` rows has `Quantity = 1`, so a query that forgets the quantity returns the same
+  numbers. This is the single-database false positive that Zhong, Yu and Klein describe, found in my own test set.
+  A test in the repository locks it in.
+
+**Next:** harder questions, test data where quantities vary, then a live API run.
+
+## Appendix
+
+- **Repository:** https://github.com/Femon02/checkedsql (README, code, 28 offline tests, `results/`, `replays/`).
+- **Commands:**
+  - `python -m checkedsql check-gold`
+  - `python -m checkedsql check-wrong` (exits 1: one blind spot)
+  - `python -m checkedsql run --replies replays/claude-code-subagents.json`
+  - `python -m checkedsql run --limit 1` (live, needs `ANTHROPIC_API_KEY`)
+- **Verdicts:** MATCH, WRONG_RESULT, SQL_ERROR, REFUSED, CONTRACT_VIOLATION, MODEL_REFUSAL, GOLD_ERROR. Every
+  non-match gets a hand-assigned failure category. Checker mistakes are counted separately from model errors.
+- **Read-only guard:**
+  - SQLite `mode=ro`;
+  - an authorizer that denies every non-read action;
+  - a progress-handler time limit;
+  - one statement per query.
+- **Limitations:**
+  - 20 easy questions, one run;
+  - a replay rather than a bare API call (Claude Code wraps the task in its own system prompt);
+  - an order-insensitive comparison that ignores column names;
+  - the same model family wrote the checker and answered the questions.
+- **Stack:** Python 3.12, SQLite, Anthropic Python SDK 2.6, pytest.

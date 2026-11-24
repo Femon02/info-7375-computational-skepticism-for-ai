@@ -2,8 +2,8 @@
 
 | field | value |
 |---|---|
-| srt | `checkedsql-pitch.srt` |
-| cues | 31 |
+| srt | `checkedsql-film.srt` |
+| cues | 48 |
 | errors | 0 |
 | verdict | **PASS** |
 

@@ -1,0 +1,16 @@
+[typecheck] wrote /Users/femon/brutalist.art/my-pitch/checkedsql-pitch/TYPECHECK.md
+[typecheck] §8.10 B01: SKIP
+[typecheck] §8.10 B02: SKIP
+[typecheck] §8.10 B03: SKIP
+[typecheck] §8.10 B04: SKIP
+[typecheck] §8.10 B05: SKIP
+[typecheck] §8.10 B06: SKIP
+[typecheck] §8.10 B07: SKIP
+[typecheck] §8.10 B08: SKIP
+[typecheck] §8.10 B09: SKIP
+[typecheck] §8.10 B10: SKIP
+[typecheck] GATE T: PASS
+[art] motion histogram: graphic:10
+[art] build stamp → beat_sheet.json (10/10 filled)
+[art] wrote my-pitch/checkedsql-pitch/exports/landscape/checkedsql-pitch.mp4  (181.3s, audio: per-beat timeline (source audio preserved), drawtext: no — PIL overlays)
+[art] slots: 10/10 filled — B01:MANIM B02:MANIM B03:MANIM B04:MANIM B05:MANIM B06:MANIM B07:MANIM B08:MANIM B09:MANIM B10:MANIM

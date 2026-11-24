@@ -1,0 +1,25 @@
+$ python -m checkedsql run --replies replays/claude-code-subagents.json
+[ 1] MATCH              How many artists are there?
+[ 2] MATCH              How many tracks are in the Rock genre?
+[ 3] MATCH              List the titles of all albums by AC/DC.
+[ 4] MATCH              How many customers are from Brazil?
+[ 5] MATCH              What is the total amount of all invoices combined?
+[ 6] MATCH              What is the total invoice amount for each billing country?
+[ 7] MATCH              Which billing country has the highest total invoice amount?
+[ 8] MATCH              How many tracks are there for each media type? Show the media type name and the count.
+[ 9] MATCH              What is the average track length in seconds?
+[10] MATCH              Which employees report directly to Nancy Edwards? Show first and last name.
+[11] MATCH              How many invoices were issued in each year?
+[12] MATCH              List the id and name of every playlist that contains no tracks.
+[13] MATCH              For each support representative, how many customers do they support? Show first name, last name and the count.
+[14] MATCH              What is the name of the longest track?
+[15] MATCH              How many different artists have at least one Jazz track?
+[16] MATCH              What is the total revenue for each genre, computed from invoice lines as unit price times quantity? Show genre name and revenue.
+[17] MATCH              Which customer has spent the most in total? Show first and last name.
+[18] MATCH              List the titles of albums that have more than 20 tracks.
+[19] MATCH              How many tracks have no composer listed?
+[20] MATCH              What percentage of tracks are priced at 0.99?
+
+20/20 matched (replay: no tokens or cost measured)
+Saved results/run_20261124-181541.json
+Next: python -m checkedsql labels results/run_20261124-181541.json

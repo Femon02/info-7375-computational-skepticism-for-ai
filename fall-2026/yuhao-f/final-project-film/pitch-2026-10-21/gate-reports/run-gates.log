@@ -1,0 +1,1229 @@
+[run] GATE L — beat-mix lint
+[beat-lint] clean — beat mix OK (beat_sheet.json)
+[run] GATE SHAPE — finance chart-shape enforcement
+[gate-shape] skip — not a finance reel (beat_sheet.json)
+[run] GATE A — static pre-flight
+
+[static-check] 1 scene(s): 1 clean · 0 warn · 0 error
+
+[static-check] 1 scene(s): 1 clean · 0 warn · 0 error
+
+[static-check] 1 scene(s): 1 clean · 0 warn · 0 error
+
+[static-check] 1 scene(s): 1 clean · 0 warn · 0 error
+
+[static-check] 1 scene(s): 1 clean · 0 warn · 0 error
+
+[static-check] 1 scene(s): 1 clean · 0 warn · 0 error
+
+[static-check] 1 scene(s): 1 clean · 0 warn · 0 error
+
+[static-check] 1 scene(s): 1 clean · 0 warn · 0 error
+
+[static-check] 1 scene(s): 1 clean · 0 warn · 0 error
+
+[static-check] 1 scene(s): 1 clean · 0 warn · 0 error
+[run] GATE W — WCAG contrast + margins + text-overlap (independent second check)
+[gateW] B01_Hook clean
+[gateW] B02_Pipeline clean
+[gateW] B03_TwoBoxes clean
+[gateW] B04_Reviewer clean
+[gateW] B05_ThreeThings clean
+[gateW] B06_ExistsToday clean
+[gateW] B07_Scope clean
+[gateW] B08_Risk clean
+[gateW] B09_WhyThis clean
+[gateW] B10_Close clean
+[run] rendering B01_Hook
+Manim Community v0.20.1
+
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             1_Hook/1697911619_29604503                         
+                             70_468760422.mp4'                                  
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             1_Hook/1167814662_61603183                         
+                             6_801364145.mp4'                                   
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             1_Hook/1167814662_33985979                         
+                             91_3197502796.mp4'                                 
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             1_Hook/1167814662_28232972                         
+                             98_3774019901.mp4'                                 
+[10/21/26 13:29:22] INFO     Animation 4 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             1_Hook/1167814662_11418484                         
+                             99_3158947762.mp4'                                 
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             1_Hook/1167814662_21113161                         
+                             31_2129990216.mp4'                                 
+[10/21/26 13:29:23] INFO     Animation 6 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             1_Hook/1167814662_29088843                         
+                             38_4165402763.mp4'                                 
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             1_Hook/1167814662_41205020                         
+                             85_4190716217.mp4'                                 
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             1_Hook/1167814662_32004277                         
+                             83_130003797.mp4'                                  
+[10/21/26 13:29:24] INFO     Animation 9 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             1_Hook/1167814662_32721890                         
+                             93_3843396252.mp4'                                 
+                    INFO     Combining to Movie file.   scene_file_writer.py:753
+                    INFO                                scene_file_writer.py:904
+                             File ready at                                      
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/B01_Hook.mp4'                                  
+                                                                                
+                    INFO     Rendered B01_Hook                      scene.py:278
+                             Played 10 animations                               
+You are using manim version v0.20.1, but version v0.22.0 is available.
+You should consider upgrading via pip install -U manim
+  if float(mob.get_stroke_opacity()) <= 0.02:
+[audit] report: /Users/femon/brutalist.art/my-pitch/checkedsql-pitch/layout_audit.md
+[run] rendering B02_Pipeline
+Manim Community v0.20.1
+
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             2_Pipeline/1697911619_2223                         
+                             179852_468760422.mp4'                              
+[10/21/26 13:29:27] INFO     Animation 1 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             2_Pipeline/1167814662_2893                         
+                             986359_3900612992.mp4'                             
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             2_Pipeline/1167814662_1492                         
+                             300499_4283212050.mp4'                             
+[10/21/26 13:29:28] INFO     Animation 3 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             2_Pipeline/1167814662_5849                         
+                             29370_3023797420.mp4'                              
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             2_Pipeline/1167814662_1978                         
+                             410847_2722533500.mp4'                             
+[10/21/26 13:29:29] INFO     Animation 5 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             2_Pipeline/1167814662_5774                         
+                             22655_2877740531.mp4'                              
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             2_Pipeline/1167814662_2379                         
+                             681962_345324231.mp4'                              
+                    INFO     Animation 7 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             2_Pipeline/1167814662_5523                         
+                             04314_3507696563.mp4'                              
+[10/21/26 13:29:30] INFO     Animation 8 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             2_Pipeline/1167814662_1635                         
+                             53271_1282728096.mp4'                              
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             2_Pipeline/1167814662_4261                         
+                             90494_2226795038.mp4'                              
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             2_Pipeline/1167814662_1563                         
+                             554212_411367099.mp4'                              
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             2_Pipeline/1167814662_6803                         
+                             5874_116364667.mp4'                                
+                    INFO     Animation 12 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             2_Pipeline/1167814662_2113                         
+                             680596_2756400222.mp4'                             
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             2_Pipeline/1167814662_2407                         
+                             092514_1910255392.mp4'                             
+[10/21/26 13:29:33] INFO     Animation 14 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             2_Pipeline/1167814662_3111                         
+                             408500_1479613421.mp4'                             
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             2_Pipeline/1167814662_3839                         
+                             361872_1441592544.mp4'                             
+[10/21/26 13:29:34] INFO     Animation 16 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             2_Pipeline/1167814662_9693                         
+                             19119_3955818235.mp4'                              
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             2_Pipeline/1167814662_1042                         
+                             549411_3604911850.mp4'                             
+                    INFO     Animation 18 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             2_Pipeline/1167814662_8290                         
+                             68312_2188949104.mp4'                              
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             2_Pipeline/1167814662_2098                         
+                             572104_894217072.mp4'                              
+                    INFO     Animation 20 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             2_Pipeline/1167814662_6539                         
+                             03817_2265370645.mp4'                              
+                    INFO     Combining to Movie file.   scene_file_writer.py:753
+                    INFO                                scene_file_writer.py:904
+                             File ready at                                      
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/B02_Pipeline.mp4'                              
+                                                                                
+                    INFO     Rendered B02_Pipeline                  scene.py:278
+                             Played 21 animations                               
+You are using manim version v0.20.1, but version v0.22.0 is available.
+You should consider upgrading via pip install -U manim
+  if float(mob.get_stroke_opacity()) <= 0.02:
+[audit] report: /Users/femon/brutalist.art/my-pitch/checkedsql-pitch/layout_audit.md
+[run] rendering B03_TwoBoxes
+Manim Community v0.20.1
+
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             3_TwoBoxes/1697911619_2935                         
+                             962003_468760422.mp4'                              
+[10/21/26 13:29:39] INFO     Animation 1 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             3_TwoBoxes/1167814662_1470                         
+                             851473_3182852563.mp4'                             
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             3_TwoBoxes/1167814662_2088                         
+                             092224_2293279206.mp4'                             
+[10/21/26 13:29:41] INFO     Animation 3 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             3_TwoBoxes/1167814662_3894                         
+                             387494_3814316446.mp4'                             
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             3_TwoBoxes/1167814662_3924                         
+                             885107_3196042306.mp4'                             
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             3_TwoBoxes/1167814662_1621                         
+                             498783_2292743441.mp4'                             
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             3_TwoBoxes/1167814662_8994                         
+                             49945_1573610.mp4'                                 
+                    INFO     Animation 7 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             3_TwoBoxes/1167814662_3869                         
+                             544079_1545846573.mp4'                             
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             3_TwoBoxes/1167814662_3546                         
+                             682588_3455926674.mp4'                             
+                    INFO     Animation 9 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             3_TwoBoxes/1167814662_2049                         
+                             904716_237028353.mp4'                              
+                    INFO     Combining to Movie file.   scene_file_writer.py:753
+                    INFO                                scene_file_writer.py:904
+                             File ready at                                      
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/B03_TwoBoxes.mp4'                              
+                                                                                
+                    INFO     Rendered B03_TwoBoxes                  scene.py:278
+                             Played 10 animations                               
+You are using manim version v0.20.1, but version v0.22.0 is available.
+You should consider upgrading via pip install -U manim
+  if float(mob.get_stroke_opacity()) <= 0.02:
+[audit] report: /Users/femon/brutalist.art/my-pitch/checkedsql-pitch/layout_audit.md
+[run] rendering B04_Reviewer
+Manim Community v0.20.1
+
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             4_Reviewer/1697911619_3060                         
+                             32252_468760422.mp4'                               
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             4_Reviewer/1167814662_2796                         
+                             923549_4003598158.mp4'                             
+[10/21/26 13:29:48] INFO     Animation 2 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             4_Reviewer/1167814662_3957                         
+                             292899_671068531.mp4'                              
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             4_Reviewer/1167814662_1712                         
+                             43318_3496662121.mp4'                              
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             4_Reviewer/1167814662_7167                         
+                             7388_1450087821.mp4'                               
+                    INFO     Animation 5 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             4_Reviewer/1167814662_2625                         
+                             927740_980765855.mp4'                              
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             4_Reviewer/1167814662_1193                         
+                             761159_664817935.mp4'                              
+[10/21/26 13:29:50] INFO     Animation 7 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             4_Reviewer/1167814662_2577                         
+                             952610_2795516804.mp4'                             
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             4_Reviewer/1167814662_1514                         
+                             281135_3730412531.mp4'                             
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             4_Reviewer/1167814662_3846                         
+                             379418_2566050502.mp4'                             
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             4_Reviewer/1167814662_8200                         
+                             74940_2062382979.mp4'                              
+                    INFO     Animation 11 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             4_Reviewer/1167814662_3801                         
+                             121977_1237606621.mp4'                             
+                    INFO     Combining to Movie file.   scene_file_writer.py:753
+                    INFO                                scene_file_writer.py:904
+                             File ready at                                      
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/B04_Reviewer.mp4'                              
+                                                                                
+                    INFO     Rendered B04_Reviewer                  scene.py:278
+                             Played 12 animations                               
+You are using manim version v0.20.1, but version v0.22.0 is available.
+You should consider upgrading via pip install -U manim
+  if float(mob.get_stroke_opacity()) <= 0.02:
+[audit] report: /Users/femon/brutalist.art/my-pitch/checkedsql-pitch/layout_audit.md
+[run] rendering B05_ThreeThings
+Manim Community v0.20.1
+
+[10/21/26 13:29:54] INFO     Animation 0 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             5_ThreeThings/1697911619_2                         
+                             307477705_101440577.mp4'                           
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             5_ThreeThings/1167814662_1                         
+                             477699339_2093604352.mp4'                          
+[10/21/26 13:29:55] INFO     Animation 2 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             5_ThreeThings/1167814662_2                         
+                             418925934_21154516.mp4'                            
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             5_ThreeThings/1167814662_1                         
+                             115111742_1487514264.mp4'                          
+[10/21/26 13:29:56] INFO     Animation 4 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             5_ThreeThings/1167814662_1                         
+                             180829871_269941853.mp4'                           
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             5_ThreeThings/1167814662_8                         
+                             10785770_3724002951.mp4'                           
+[10/21/26 13:29:57] INFO     Animation 6 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             5_ThreeThings/1167814662_1                         
+                             163346848_2876335823.mp4'                          
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             5_ThreeThings/1167814662_2                         
+                             112373907_3753317812.mp4'                          
+                    INFO     Animation 8 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             5_ThreeThings/1167814662_2                         
+                             68690964_1247025727.mp4'                           
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             5_ThreeThings/1167814662_1                         
+                             217634907_3523405275.mp4'                          
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             5_ThreeThings/1167814662_1                         
+                             12115040_962639682.mp4'                            
+[10/21/26 13:30:00] INFO     Animation 11 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             5_ThreeThings/1167814662_2                         
+                             896929787_1354834072.mp4'                          
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             5_ThreeThings/1167814662_3                         
+                             499665681_3179854866.mp4'                          
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             5_ThreeThings/1167814662_1                         
+                             347803118_2718920086.mp4'                          
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             5_ThreeThings/1167814662_2                         
+                             812194948_2197893744.mp4'                          
+[10/21/26 13:30:01] INFO     Animation 15 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             5_ThreeThings/1167814662_4                         
+                             079250704_1128084388.mp4'                          
+                    INFO     Combining to Movie file.   scene_file_writer.py:753
+                    INFO                                scene_file_writer.py:904
+                             File ready at                                      
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/B05_ThreeThings.mp4'                           
+                                                                                
+                    INFO     Rendered B05_ThreeThings               scene.py:278
+                             Played 16 animations                               
+You are using manim version v0.20.1, but version v0.22.0 is available.
+You should consider upgrading via pip install -U manim
+  if float(mob.get_stroke_opacity()) <= 0.02:
+[audit] report: /Users/femon/brutalist.art/my-pitch/checkedsql-pitch/layout_audit.md
+[run] rendering B06_ExistsToday
+Manim Community v0.20.1
+
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             6_ExistsToday/1697911619_9                         
+                             50272896_1707890236.mp4'                           
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             6_ExistsToday/1167814662_3                         
+                             010578120_1735743006.mp4'                          
+[10/21/26 13:30:08] INFO     Animation 2 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             6_ExistsToday/1167814662_4                         
+                             58524690_3337952777.mp4'                           
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             6_ExistsToday/1167814662_2                         
+                             773095827_1246379519.mp4'                          
+[10/21/26 13:30:12] INFO     Animation 4 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             6_ExistsToday/1167814662_9                         
+                             50257427_659915196.mp4'                            
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             6_ExistsToday/1167814662_2                         
+                             831507467_3188497657.mp4'                          
+[10/21/26 13:30:14] INFO     Animation 6 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             6_ExistsToday/1167814662_4                         
+                             000277403_3443774902.mp4'                          
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             6_ExistsToday/1167814662_1                         
+                             691840231_2807451923.mp4'                          
+                    INFO     Animation 8 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             6_ExistsToday/1167814662_3                         
+                             051917622_1994431342.mp4'                          
+                    INFO     Combining to Movie file.   scene_file_writer.py:753
+                    INFO                                scene_file_writer.py:904
+                             File ready at                                      
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/B06_ExistsToday.mp4'                           
+                                                                                
+                    INFO     Rendered B06_ExistsToday               scene.py:278
+                             Played 9 animations                                
+You are using manim version v0.20.1, but version v0.22.0 is available.
+You should consider upgrading via pip install -U manim
+  if float(mob.get_stroke_opacity()) <= 0.02:
+[audit] report: /Users/femon/brutalist.art/my-pitch/checkedsql-pitch/layout_audit.md
+[run] rendering B07_Scope
+Manim Community v0.20.1
+
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             7_Scope/1697911619_2101080                         
+                             265_468760422.mp4'                                 
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             7_Scope/1167814662_2855233                         
+                             100_4082800210.mp4'                                
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             7_Scope/1167814662_3093480                         
+                             361_1458410541.mp4'                                
+[10/21/26 13:30:19] INFO     Animation 3 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             7_Scope/1167814662_1639579                         
+                             657_2005271202.mp4'                                
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             7_Scope/1167814662_9509835                         
+                             82_3031937621.mp4'                                 
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             7_Scope/1167814662_3352717                         
+                             045_2446408844.mp4'                                
+[10/21/26 13:30:20] INFO     Animation 6 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             7_Scope/1167814662_1692583                         
+                             724_866603924.mp4'                                 
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             7_Scope/1167814662_1478782                         
+                             580_3316349329.mp4'                                
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             7_Scope/1167814662_9182165                         
+                             01_3460927355.mp4'                                 
+                    INFO     Animation 9 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             7_Scope/1167814662_2549347                         
+                             009_408207786.mp4'                                 
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             7_Scope/1167814662_1384382                         
+                             059_1326558585.mp4'                                
+[10/21/26 13:30:21] INFO     Animation 11 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             7_Scope/1167814662_1812849                         
+                             906_1916209383.mp4'                                
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             7_Scope/1167814662_3154443                         
+                             89_1322795543.mp4'                                 
+[10/21/26 13:30:23] INFO     Animation 13 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             7_Scope/1167814662_1100954                         
+                             610_4183133112.mp4'                                
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             7_Scope/1167814662_2007492                         
+                             610_3678376729.mp4'                                
+                    INFO     Animation 15 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             7_Scope/1167814662_1578360                         
+                             152_2932746950.mp4'                                
+                    INFO     Combining to Movie file.   scene_file_writer.py:753
+[10/21/26 13:30:24] INFO                                scene_file_writer.py:904
+                             File ready at                                      
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/B07_Scope.mp4'                                 
+                                                                                
+                    INFO     Rendered B07_Scope                     scene.py:278
+                             Played 16 animations                               
+You are using manim version v0.20.1, but version v0.22.0 is available.
+You should consider upgrading via pip install -U manim
+  if float(mob.get_stroke_opacity()) <= 0.02:
+[audit] report: /Users/femon/brutalist.art/my-pitch/checkedsql-pitch/layout_audit.md
+[run] rendering B08_Risk
+Manim Community v0.20.1
+
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             8_Risk/1697911619_13173422                         
+                             97_1039575412.mp4'                                 
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             8_Risk/1167814662_18297192                         
+                             64_3202121224.mp4'                                 
+[10/21/26 13:30:31] INFO     Animation 2 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             8_Risk/1167814662_30823492                         
+                             16_1331611306.mp4'                                 
+[10/21/26 13:30:32] INFO     Animation 3 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             8_Risk/1167814662_38033785                         
+                             35_1066432083.mp4'                                 
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             8_Risk/1167814662_37257403                         
+                             31_3737416245.mp4'                                 
+[10/21/26 13:30:33] INFO     Animation 5 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             8_Risk/1167814662_36212970                         
+                             _3374300743.mp4'                                   
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             8_Risk/1167814662_20982073                         
+                             58_224148387.mp4'                                  
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             8_Risk/1167814662_32124513                         
+                             10_2450432673.mp4'                                 
+[10/21/26 13:30:35] INFO     Animation 8 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             8_Risk/1167814662_11709288                         
+                             27_3318377630.mp4'                                 
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             8_Risk/1167814662_15162614                         
+                             94_3553101486.mp4'                                 
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             8_Risk/1167814662_22416153                         
+                             73_2578176648.mp4'                                 
+[10/21/26 13:30:37] INFO     Animation 11 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             8_Risk/1167814662_38991656                         
+                             39_252093457.mp4'                                  
+                    INFO     Combining to Movie file.   scene_file_writer.py:753
+                    INFO                                scene_file_writer.py:904
+                             File ready at                                      
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/B08_Risk.mp4'                                  
+                                                                                
+                    INFO     Rendered B08_Risk                      scene.py:278
+                             Played 12 animations                               
+You are using manim version v0.20.1, but version v0.22.0 is available.
+You should consider upgrading via pip install -U manim
+  if float(mob.get_stroke_opacity()) <= 0.02:
+[audit] report: /Users/femon/brutalist.art/my-pitch/checkedsql-pitch/layout_audit.md
+[run] rendering B09_WhyThis
+Manim Community v0.20.1
+
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             9_WhyThis/1697911619_21666                         
+                             09635_468760422.mp4'                               
+[10/21/26 13:30:40] INFO     Animation 1 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             9_WhyThis/1167814662_91551                         
+                             7757_2955773062.mp4'                               
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             9_WhyThis/1167814662_26403                         
+                             85918_1682307601.mp4'                              
+[10/21/26 13:30:42] INFO     Animation 3 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             9_WhyThis/1167814662_60693                         
+                             8682_1080962529.mp4'                               
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             9_WhyThis/1167814662_31715                         
+                             91934_165235501.mp4'                               
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             9_WhyThis/1167814662_22564                         
+                             30640_3484267953.mp4'                              
+[10/21/26 13:30:44] INFO     Animation 6 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             9_WhyThis/1167814662_27421                         
+                             43667_1946531578.mp4'                              
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             9_WhyThis/1167814662_25134                         
+                             26060_3877502599.mp4'                              
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             9_WhyThis/1167814662_24828                         
+                             22559_1508213746.mp4'                              
+                    INFO     Animation 9 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             9_WhyThis/1167814662_36477                         
+                             0849_4196779220.mp4'                               
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             9_WhyThis/1167814662_35375                         
+                             98719_3253716741.mp4'                              
+[10/21/26 13:30:47] INFO     Animation 11 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             9_WhyThis/1167814662_22948                         
+                             57411_2581018931.mp4'                              
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             9_WhyThis/1167814662_41887                         
+                             44366_2427702269.mp4'                              
+[10/21/26 13:30:48] INFO     Animation 13 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             9_WhyThis/1167814662_15349                         
+                             91760_1614095481.mp4'                              
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             9_WhyThis/1167814662_10246                         
+                             33546_3834696911.mp4'                              
+[10/21/26 13:30:49] INFO     Animation 15 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             9_WhyThis/1167814662_36410                         
+                             72670_807568538.mp4'                               
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             9_WhyThis/1167814662_23594                         
+                             48360_2826834877.mp4'                              
+[10/21/26 13:30:50] INFO     Animation 17 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             9_WhyThis/1167814662_14516                         
+                             08032_2531270846.mp4'                              
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             9_WhyThis/1167814662_59266                         
+                             199_2630575708.mp4'                                
+[10/21/26 13:30:51] INFO     Animation 19 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             9_WhyThis/1167814662_13300                         
+                             14132_676045856.mp4'                               
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             9_WhyThis/1167814662_13621                         
+                             38211_1982687651.mp4'                              
+[10/21/26 13:30:52] INFO     Animation 21 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B0                         
+                             9_WhyThis/1167814662_35234                         
+                             29077_1225433593.mp4'                              
+                    INFO     Combining to Movie file.   scene_file_writer.py:753
+                    INFO                                scene_file_writer.py:904
+                             File ready at                                      
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/B09_WhyThis.mp4'                               
+                                                                                
+                    INFO     Rendered B09_WhyThis                   scene.py:278
+                             Played 22 animations                               
+You are using manim version v0.20.1, but version v0.22.0 is available.
+You should consider upgrading via pip install -U manim
+  if float(mob.get_stroke_opacity()) <= 0.02:
+[audit] report: /Users/femon/brutalist.art/my-pitch/checkedsql-pitch/layout_audit.md
+[run] rendering B10_Close
+Manim Community v0.20.1
+
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B1                         
+                             0_Close/1697911619_4403489                         
+                             89_3531831273.mp4'                                 
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B1                         
+                             0_Close/1167814662_2859273                         
+                             526_3276735639.mp4'                                
+                    INFO     Animation 2 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B1                         
+                             0_Close/1167814662_1272654                         
+                             386_952929376.mp4'                                 
+                    INFO     Animation 3 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B1                         
+                             0_Close/1167814662_2076798                         
+                             401_1170688906.mp4'                                
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B1                         
+                             0_Close/1167814662_1506845                         
+                             16_2592178387.mp4'                                 
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B1                         
+                             0_Close/1167814662_3267490                         
+                             767_895931718.mp4'                                 
+[10/21/26 13:30:57] INFO     Animation 6 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/partial_movie_files/B1                         
+                             0_Close/1167814662_1102313                         
+                             854_1859747827.mp4'                                
+                    INFO     Combining to Movie file.   scene_file_writer.py:753
+                    INFO                                scene_file_writer.py:904
+                             File ready at                                      
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-pitc                         
+                             h/media/videos/scenes/2160                         
+                             p24/B10_Close.mp4'                                 
+                                                                                
+                    INFO     Rendered B10_Close                     scene.py:278
+                             Played 7 animations                                
+You are using manim version v0.20.1, but version v0.22.0 is available.
+You should consider upgrading via pip install -U manim
+  if float(mob.get_stroke_opacity()) <= 0.02:
+[audit] report: /Users/femon/brutalist.art/my-pitch/checkedsql-pitch/layout_audit.md
+[remotion] nothing to do — no shot.remotion.pattern beats
+[art] compiled B01  MANIM     8.7s  ← B01.mp4
+[art] compiled B02  MANIM    21.6s  ← B02.mp4
+[art] compiled B03  MANIM    18.5s  ← B03.mp4
+[art] compiled B04  MANIM    13.5s  ← B04.mp4
+[art] compiled B05  MANIM    20.5s  ← B05.mp4
+[art] compiled B06  MANIM    18.2s  ← B06.mp4
+[art] compiled B07  MANIM    17.2s  ← B07.mp4
+[art] compiled B08  MANIM    20.5s  ← B08.mp4
+[art] compiled B09  MANIM    35.6s  ← B09.mp4
+[art] compiled B10  MANIM     7.0s  ← B10.mp4
+[art] motion histogram: graphic:10
+[art] build stamp → beat_sheet.json (10/10 filled)
+[art] QC contact sheet → /Users/femon/brutalist.art/my-pitch/checkedsql-pitch/qc-sheet.png
+[art] wrote /Users/femon/brutalist.art/my-pitch/checkedsql-pitch/checkedsql-pitch-slate.mp4  (181.3s, audio: per-beat timeline (source audio preserved), drawtext: no — PIL overlays)
+[art] slots: 10/10 filled — B01:MANIM B02:MANIM B03:MANIM B04:MANIM B05:MANIM B06:MANIM B07:MANIM B08:MANIM B09:MANIM B10:MANIM
+[run] GATE V — frame-level visual QC on the compiled reel
+[gate-v] frames=20 BLOCKER=0 MAJOR=0 → /Users/femon/brutalist.art/my-pitch/checkedsql-pitch/_qc/REPORT.md
+[run] done → /Users/femon/brutalist.art/my-pitch/checkedsql-pitch  (QC gates: on)
+[run] REVIEW built; no final exported. Use ./art final <reel> for a verified master.
+[run] any remaining slates are YOUR slots — see /Users/femon/brutalist.art/my-pitch/checkedsql-pitch/SHOTLIST.md
+exit 0

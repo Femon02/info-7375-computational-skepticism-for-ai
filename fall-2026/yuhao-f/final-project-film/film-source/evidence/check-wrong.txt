@@ -1,0 +1,11 @@
+$ python -m checkedsql check-wrong
+[ 4] caught  misspelled literal ('Brasil')
+[ 8] caught  inner join with a filter drops media types
+[ 9] caught  milliseconds, not seconds
+[15] caught  counts tracks, not distinct artists
+[16] MISSED  forgets Quantity (sums UnitPrice only)  <- a wrong answer scores as correct: blind spot in the test data
+[17] caught  ranks by number of invoices, not money spent
+[19] caught  misses NULL composers
+[20] caught  a count, not a percentage
+
+Wrong answers caught: 7/8 · blind spots: 1

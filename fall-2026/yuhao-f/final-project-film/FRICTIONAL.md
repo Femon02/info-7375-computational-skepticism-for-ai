@@ -47,3 +47,36 @@ Dated log of what went wrong, what I tried, and what I did instead.
   from any toolkit checkout (it produces a byte-identical `scenes.py`).
 - The submitted `beat_sheet.json` is my plan with beat 3's placeholder replaced by the words actually spoken;
   my original working file still has the placeholder.
+
+## Up to 2026-11-06 — Building CheckedSQL itself
+- Claude rebuilt my draft script into the `checkedsql` package (read-only guard, contract check, comparator, tie
+  detector, labels, report) with 25 offline tests. No API was called.
+- **No API key.** I had planned to run one question on the API first, but I don't have a key. Instead of
+  pretending, I chose a replay: 20 fresh Claude subagents in Claude Code, one question each, with the replies
+  recorded verbatim. The first attempt failed because the temporary prompt files were deleted before the subagents
+  could read them. They were rewritten to a folder that persists, and the run was repeated.
+- **20/20 looked too good.** A perfect score on easy questions says little, so Claude wrote 8 deliberately wrong
+  answers to test the checker. 7 were caught. The miss is question 16: every `Quantity` in Chinook is 1, so a query
+  that forgets it gets the same numbers. This blind spot became the main finding, and a test locks it in.
+- Published the repository: https://github.com/Femon02/checkedsql.
+
+## 2026-11-24 — The project film (new course brief)
+- **New brief.** The course email asks for four parts in order: executive summary, introduction (what others have
+  done), methods, evaluation. The October pitch film didn't have a prior-work section or results, so I made a new
+  film rather than patching the old one. The old one is kept in `pitch-2026-10-21/`.
+- **Prior work had to be checked, not remembered.** Claude looked up the four works the film cites in their
+  original papers before writing a number:
+  - **BIRD:** the abstract gives ChatGPT 40.08%, not the higher GPT-4 figure that circulates elsewhere. The film
+    attributes the number to "BIRD's original paper".
+  - **The 2020 test-suite paper:** checked in its body text (Figure 1) that single-database evaluation "might
+    create false positives".
+- **Evidence instead of screenshots.** Beats 12 and 13 show CheckedSQL's real terminal output, captured on
+  2026-11-24 at commit `4a3c927` and rendered as text images. They are labelled "real output", not "real screenshot".
+- **Pronunciation.** Whisper hears "Zhong, Yu and Klein" as "Zhang, you and Klein". Kokoro has no pronunciation
+  override, so I left the spelling correct in the captions.
+- **Gates.** B01 ran 0.47 s past its audio and was shortened. GATE T failed three beats:
+  - B02 and B04: handwriting squiggles too small, so they were drawn taller;
+  - B10: the orange Claude Code pixel logo read as low-contrast text, and a backing plate didn't fix it, so it was
+    swapped for Claude's standard mark.
+  
+  Everything passes except the bookend check, which fails by design, as in October.

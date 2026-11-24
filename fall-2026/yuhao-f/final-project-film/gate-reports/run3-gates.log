@@ -1,12 +1,14 @@
-[run] skip B01_Hook — B01 already filled
-[run] skip B02_Pipeline — B02 already filled
-[run] skip B03_TwoBoxes — B03 already filled
-[run] skip B04_Reviewer — B04 already filled
-[run] skip B06_ExistsToday — B06 already filled
-[run] skip B07_Scope — B07 already filled
-[run] skip B08_Risk — B08 already filled
-[run] skip B09_WhyThis — B09 already filled
-[run] skip B10_Close — B10 already filled
+[run] skip B01_WhatItIs — B01 already filled
+[run] skip B03_Benchmarks — B03 already filled
+[run] skip B04_CheckerWrong — B04 already filled
+[run] skip B05_Tools — B05 already filled
+[run] skip B06_WhyMine — B06 already filled
+[run] skip B07_Data — B07 already filled
+[run] skip B08_Pipeline — B08 already filled
+[run] skip B11_Measure — B11 already filled
+[run] skip B12_FirstResult — B12 already filled
+[run] skip B13_BlindSpot — B13 already filled
+[run] skip B14_Close — B14 already filled
 [run] GATE L — beat-mix lint
 [beat-lint] clean — beat mix OK (beat_sheet.json)
 [run] GATE SHAPE — finance chart-shape enforcement
@@ -14,146 +16,422 @@
 [run] GATE A — static pre-flight
 
 [static-check] 1 scene(s): 1 clean · 0 warn · 0 error
+
+[static-check] 1 scene(s): 1 clean · 0 warn · 0 error
+
+[static-check] 1 scene(s): 1 clean · 0 warn · 0 error
 [run] GATE W — WCAG contrast + margins + text-overlap (independent second check)
-[gateW] B05_ThreeThings clean
-[run] rendering B05_ThreeThings
+[gateW] B02_WhyCare clean
+[gateW] B09_CheckChecker clean
+[gateW] B10_Resources clean
+[run] rendering B02_WhyCare
 Manim Community v0.20.1
 
-[10/21/26 13:33:01] INFO     Animation 0 : Partial      scene_file_writer.py:601
+Animation 0: FadeIn(VGroup of 2 submobjects), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 0: FadeIn(VGroup of 2 submobjects), etc.:  80%|████████  | 12/15 [00:00<00:00, 114.81it/s]                                                                                                    [11/24/26 18:30:39] INFO     Animation 0 : Partial      scene_file_writer.py:601
                              movie file written in                              
                              '/Users/femon/brutalist.ar                         
-                             t/my-pitch/checkedsql-pitc                         
-                             h/media/videos/scenes/2160                         
-                             p24/partial_movie_files/B0                         
-                             5_ThreeThings/1697911619_2                         
-                             307477705_101440577.mp4'                           
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B02                         
+                             _WhyCare/1697911619_274485                         
+                             2653_468760422.mp4'                                
+Animation 1: Create(VGroup of 4 submobjects), etc.:   0%|          | 0/20 [00:00<?, ?it/s]Animation 1: Create(VGroup of 4 submobjects), etc.:  70%|███████   | 14/20 [00:00<00:00, 134.77it/s]                                                                                                    [11/24/26 18:30:40] INFO     Animation 1 : Partial      scene_file_writer.py:601
                              movie file written in                              
                              '/Users/femon/brutalist.ar                         
-                             t/my-pitch/checkedsql-pitc                         
-                             h/media/videos/scenes/2160                         
-                             p24/partial_movie_files/B0                         
-                             5_ThreeThings/1167814662_1                         
-                             477699339_2093604352.mp4'                          
-[10/21/26 13:33:02] INFO     Animation 2 : Partial      scene_file_writer.py:601
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B02                         
+                             _WhyCare/1167814662_772963                         
+                             730_3926979916.mp4'                                
+[11/24/26 18:30:41] INFO     Animation 2 : Partial      scene_file_writer.py:601
                              movie file written in                              
                              '/Users/femon/brutalist.ar                         
-                             t/my-pitch/checkedsql-pitc                         
-                             h/media/videos/scenes/2160                         
-                             p24/partial_movie_files/B0                         
-                             5_ThreeThings/1167814662_2                         
-                             418925934_21154516.mp4'                            
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B02                         
+                             _WhyCare/1167814662_232033                         
+                             4214_3319965126.mp4'                               
+Animation 3: Create(VGroup of 2 submobjects), etc.:   0%|          | 0/15 [00:00<?, ?it/s]                                                                                                              INFO     Animation 3 : Partial      scene_file_writer.py:601
                              movie file written in                              
                              '/Users/femon/brutalist.ar                         
-                             t/my-pitch/checkedsql-pitc                         
-                             h/media/videos/scenes/2160                         
-                             p24/partial_movie_files/B0                         
-                             5_ThreeThings/1167814662_1                         
-                             115111742_1487514264.mp4'                          
-[10/21/26 13:33:03] INFO     Animation 4 : Partial      scene_file_writer.py:601
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B02                         
+                             _WhyCare/1167814662_328709                         
+                             644_1469826583.mp4'                                
+[11/24/26 18:30:42] INFO     Animation 4 : Partial      scene_file_writer.py:601
                              movie file written in                              
                              '/Users/femon/brutalist.ar                         
-                             t/my-pitch/checkedsql-pitc                         
-                             h/media/videos/scenes/2160                         
-                             p24/partial_movie_files/B0                         
-                             5_ThreeThings/1167814662_1                         
-                             180829871_269941853.mp4'                           
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B02                         
+                             _WhyCare/1167814662_286280                         
+                             1186_1583358479.mp4'                               
+Animation 5: FadeIn(VGroup of 2 submobjects):   0%|          | 0/10 [00:00<?, ?it/s]                                                                                                        INFO     Animation 5 : Partial      scene_file_writer.py:601
                              movie file written in                              
                              '/Users/femon/brutalist.ar                         
-                             t/my-pitch/checkedsql-pitc                         
-                             h/media/videos/scenes/2160                         
-                             p24/partial_movie_files/B0                         
-                             5_ThreeThings/1167814662_8                         
-                             10785770_3724002951.mp4'                           
-[10/21/26 13:33:04] INFO     Animation 6 : Partial      scene_file_writer.py:601
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B02                         
+                             _WhyCare/1167814662_385114                         
+                             9086_1033483772.mp4'                               
+Animation 6: _MethodAnimation(VGroup of 2 submobjects):   0%|          | 0/24 [00:00<?, ?it/s]Animation 6: _MethodAnimation(VGroup of 2 submobjects):  83%|████████▎ | 20/24 [00:00<00:00, 198.42it/s]                                                                                                                            INFO     Animation 6 : Partial      scene_file_writer.py:601
                              movie file written in                              
                              '/Users/femon/brutalist.ar                         
-                             t/my-pitch/checkedsql-pitc                         
-                             h/media/videos/scenes/2160                         
-                             p24/partial_movie_files/B0                         
-                             5_ThreeThings/1167814662_1                         
-                             163346848_2876335823.mp4'                          
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B02                         
+                             _WhyCare/1167814662_144498                         
+                             6310_385885287.mp4'                                
+Animation 7: FadeOut(VGroup of 2 submobjects), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 7: FadeOut(VGroup of 2 submobjects), etc.: 100%|██████████| 15/15 [00:00<00:00, 146.44it/s]                                                                                                                         INFO     Animation 7 : Partial      scene_file_writer.py:601
                              movie file written in                              
                              '/Users/femon/brutalist.ar                         
-                             t/my-pitch/checkedsql-pitc                         
-                             h/media/videos/scenes/2160                         
-                             p24/partial_movie_files/B0                         
-                             5_ThreeThings/1167814662_2                         
-                             112373907_3753317812.mp4'                          
-                    INFO     Animation 8 : Partial      scene_file_writer.py:601
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B02                         
+                             _WhyCare/1167814662_229142                         
+                             4512_3962926833.mp4'                               
+[11/24/26 18:30:43] INFO     Animation 8 : Partial      scene_file_writer.py:601
                              movie file written in                              
                              '/Users/femon/brutalist.ar                         
-                             t/my-pitch/checkedsql-pitc                         
-                             h/media/videos/scenes/2160                         
-                             p24/partial_movie_files/B0                         
-                             5_ThreeThings/1167814662_2                         
-                             68690964_1247025727.mp4'                           
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B02                         
+                             _WhyCare/1167814662_411216                         
+                             6674_3071980038.mp4'                               
+Animation 9: FadeIn(VGroup of 3 submobjects), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 9: FadeIn(VGroup of 3 submobjects), etc.:  93%|█████████▎| 14/15 [00:00<00:00, 133.74it/s]                                                                                                                        INFO     Animation 9 : Partial      scene_file_writer.py:601
                              movie file written in                              
                              '/Users/femon/brutalist.ar                         
-                             t/my-pitch/checkedsql-pitc                         
-                             h/media/videos/scenes/2160                         
-                             p24/partial_movie_files/B0                         
-                             5_ThreeThings/1167814662_1                         
-                             217634907_3523405275.mp4'                          
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B02                         
+                             _WhyCare/1167814662_901953                         
+                             007_2595117840.mp4'                                
+Animation 10: _MethodAnimation(VGroup of 2 submobjects):   0%|          | 0/24 [00:00<?, ?it/s]Animation 10: _MethodAnimation(VGroup of 2 submobjects):  58%|█████▊    | 14/24 [00:00<00:00, 136.27it/s]                                                                                                         [11/24/26 18:30:44] INFO     Animation 10 : Partial     scene_file_writer.py:601
                              movie file written in                              
                              '/Users/femon/brutalist.ar                         
-                             t/my-pitch/checkedsql-pitc                         
-                             h/media/videos/scenes/2160                         
-                             p24/partial_movie_files/B0                         
-                             5_ThreeThings/1167814662_1                         
-                             12115040_962639682.mp4'                            
-[10/21/26 13:33:06] INFO     Animation 11 : Partial     scene_file_writer.py:601
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B02                         
+                             _WhyCare/1167814662_213360                         
+                             3042_2271949204.mp4'                               
+Animation 11: FadeIn(Text('?')):   0%|          | 0/10 [00:00<?, ?it/s]                                                                                           INFO     Animation 11 : Partial     scene_file_writer.py:601
                              movie file written in                              
                              '/Users/femon/brutalist.ar                         
-                             t/my-pitch/checkedsql-pitc                         
-                             h/media/videos/scenes/2160                         
-                             p24/partial_movie_files/B0                         
-                             5_ThreeThings/1167814662_3                         
-                             364631862_1354834072.mp4'                          
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B02                         
+                             _WhyCare/1167814662_193635                         
+                             2935_946413945.mp4'                                
+[11/24/26 18:30:45] INFO     Animation 12 : Partial     scene_file_writer.py:601
                              movie file written in                              
                              '/Users/femon/brutalist.ar                         
-                             t/my-pitch/checkedsql-pitc                         
-                             h/media/videos/scenes/2160                         
-                             p24/partial_movie_files/B0                         
-                             5_ThreeThings/1167814662_3                         
-                             387401590_2876311242.mp4'                          
-                             movie file written in                              
-                             '/Users/femon/brutalist.ar                         
-                             t/my-pitch/checkedsql-pitc                         
-                             h/media/videos/scenes/2160                         
-                             p24/partial_movie_files/B0                         
-                             5_ThreeThings/1167814662_2                         
-                             433696395_3615162682.mp4'                          
-                    INFO     Animation 14 : Partial     scene_file_writer.py:601
-                             movie file written in                              
-                             '/Users/femon/brutalist.ar                         
-                             t/my-pitch/checkedsql-pitc                         
-                             h/media/videos/scenes/2160                         
-                             p24/partial_movie_files/B0                         
-                             5_ThreeThings/1167814662_2                         
-                             878430336_868985070.mp4'                           
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B02                         
+                             _WhyCare/1167814662_307614                         
+                             8187_1368343014.mp4'                               
                     INFO     Combining to Movie file.   scene_file_writer.py:753
                     INFO                                scene_file_writer.py:904
                              File ready at                                      
                              '/Users/femon/brutalist.ar                         
-                             t/my-pitch/checkedsql-pitc                         
-                             h/media/videos/scenes/2160                         
-                             p24/B05_ThreeThings.mp4'                           
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/B02_WhyCare.mp4'                                
                                                                                 
-                    INFO     Rendered B05_ThreeThings               scene.py:278
-                             Played 15 animations                               
-You are using manim version v0.20.1, but version v0.22.0 is available.
+                    INFO     Rendered B02_WhyCare                   scene.py:278
+                             Played 13 animations                               
+You are using manim version v0.20.1, but version v0.22.1 is available.
 You should consider upgrading via pip install -U manim
+Animation 0: FadeIn(VGroup of 2 submobjects), etc.:   0%|          | 0/9 [00:00<?, ?it/s]                                                                                         Animation 1: Create(VGroup of 4 submobjects), etc.:   0%|          | 0/12 [00:00<?, ?it/s]                                                                                          /Users/femon/brutalist.art/runtime/qc/manim_layout_audit.py:149: DeprecationWarning: This method is not guaranteed to stay around. Please prefer getting the attribute normally.
   if float(mob.get_stroke_opacity()) <= 0.02:
-[audit] report: /Users/femon/brutalist.art/my-pitch/checkedsql-pitch/layout_audit.md
+Animation 3: Create(VGroup of 2 submobjects), etc.:   0%|          | 0/9 [00:00<?, ?it/s]                                                                                         Animation 5: FadeIn(VGroup of 2 submobjects):   0%|          | 0/6 [00:00<?, ?it/s]                                                                                   Animation 6: _MethodAnimation(VGroup of 2 submobjects):   0%|          | 0/15 [00:00<?, ?it/s]                                                                                              Animation 7: FadeOut(VGroup of 2 submobjects), etc.:   0%|          | 0/9 [00:00<?, ?it/s]                                                                                          Animation 9: FadeIn(VGroup of 3 submobjects), etc.:   0%|          | 0/9 [00:00<?, ?it/s]                                                                                         Animation 10: _MethodAnimation(VGroup of 2 submobjects):   0%|          | 0/15 [00:00<?, ?it/s]                                                                                               Animation 11: FadeIn(Text('?')):   0%|          | 0/6 [00:00<?, ?it/s]                                                                      [audit] scenes: 17 snapshots → CLEAN
+[audit] report: /Users/femon/brutalist.art/my-pitch/checkedsql-film/layout_audit.md
+[run] rendering B09_CheckChecker
+Manim Community v0.20.1
+
+Animation 0: FadeIn(VGroup of 3 submobjects), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 0: FadeIn(VGroup of 3 submobjects), etc.:  67%|██████▋   | 10/15 [00:00<00:00, 96.62it/s]                                                                                                   [11/24/26 18:30:47] INFO     Animation 0 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B09                         
+                             _CheckChecker/1697911619_3                         
+                             919748741_2169136329.mp4'                          
+[11/24/26 18:30:48] INFO     Animation 1 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B09                         
+                             _CheckChecker/1167814662_2                         
+                             026246787_2317770918.mp4'                          
+Animation 2: FadeIn(ImageMobject), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 2: FadeIn(ImageMobject), etc.:  13%|█▎        | 2/15 [00:00<00:01, 10.23it/s]Animation 2: FadeIn(ImageMobject), etc.:  27%|██▋       | 4/15 [00:00<00:01,  9.70it/s]Animation 2: FadeIn(ImageMobject), etc.:  33%|███▎      | 5/15 [00:00<00:01,  9.53it/s]Animation 2: FadeIn(ImageMobject), etc.:  40%|████      | 6/15 [00:00<00:00,  9.42it/s]Animation 2: FadeIn(ImageMobject), etc.:  47%|████▋     | 7/15 [00:00<00:00,  9.35it/s]Animation 2: FadeIn(ImageMobject), etc.:  53%|█████▎    | 8/15 [00:00<00:00,  9.25it/s]Animation 2: FadeIn(ImageMobject), etc.:  60%|██████    | 9/15 [00:00<00:00,  9.17it/s]Animation 2: FadeIn(ImageMobject), etc.:  67%|██████▋   | 10/15 [00:01<00:00,  9.10it/s]Animation 2: FadeIn(ImageMobject), etc.:  73%|███████▎  | 11/15 [00:01<00:00,  9.08it/s]Animation 2: FadeIn(ImageMobject), etc.:  80%|████████  | 12/15 [00:01<00:00,  9.01it/s]Animation 2: FadeIn(ImageMobject), etc.:  87%|████████▋ | 13/15 [00:01<00:00,  8.99it/s]Animation 2: FadeIn(ImageMobject), etc.:  93%|█████████▎| 14/15 [00:01<00:00,  8.98it/s]Animation 2: FadeIn(ImageMobject), etc.: 100%|██████████| 15/15 [00:01<00:00,  9.13it/s]                                                                                        [11/24/26 18:30:50] INFO     Animation 2 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B09                         
+                             _CheckChecker/1167814662_1                         
+                             317342297_3271437016.mp4'                          
+[11/24/26 18:30:51] INFO     Animation 3 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B09                         
+                             _CheckChecker/1167814662_3                         
+                             146234382_2616602636.mp4'                          
+[11/24/26 18:30:52] INFO     Animation 4 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B09                         
+                             _CheckChecker/1167814662_2                         
+                             17683389_1832914679.mp4'                           
+Animation 5: Create(Rectangle):   0%|          | 0/15 [00:00<?, ?it/s]                                                                                          INFO     Animation 5 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B09                         
+                             _CheckChecker/1167814662_3                         
+                             725740331_2228512496.mp4'                          
+[11/24/26 18:30:53] INFO     Animation 6 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B09                         
+                             _CheckChecker/1167814662_3                         
+                             053146049_99500041.mp4'                            
+Animation 7: LaggedStart(Group), etc.:   0%|          | 0/20 [00:00<?, ?it/s]Animation 7: LaggedStart(Group), etc.:  70%|███████   | 14/20 [00:00<00:00, 130.82it/s]                                                                                       [11/24/26 18:30:54] INFO     Animation 7 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B09                         
+                             _CheckChecker/1167814662_2                         
+                             814580181_2465721425.mp4'                          
+[11/24/26 18:30:55] INFO     Animation 8 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B09                         
+                             _CheckChecker/1167814662_3                         
+                             348421548_2360251500.mp4'                          
+Animation 9: LaggedStart(Group):   0%|          | 0/15 [00:00<?, ?it/s]                                                                                           INFO     Animation 9 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B09                         
+                             _CheckChecker/1167814662_2                         
+                             508533956_2818880307.mp4'                          
+[11/24/26 18:30:56] INFO     Animation 10 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B09                         
+                             _CheckChecker/1167814662_4                         
+                             168850267_2281246417.mp4'                          
+                    INFO     Combining to Movie file.   scene_file_writer.py:753
+                    INFO                                scene_file_writer.py:904
+                             File ready at                                      
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/B09_CheckChecker.mp4'                           
+                                                                                
+                    INFO     Rendered B09_CheckChecker              scene.py:278
+                             Played 11 animations                               
+You are using manim version v0.20.1, but version v0.22.1 is available.
+You should consider upgrading via pip install -U manim
+Animation 0: FadeIn(VGroup of 3 submobjects), etc.:   0%|          | 0/9 [00:00<?, ?it/s]                                                                                         /Users/femon/brutalist.art/runtime/qc/manim_layout_audit.py:149: DeprecationWarning: This method is not guaranteed to stay around. Please prefer getting the attribute normally.
+  if float(mob.get_stroke_opacity()) <= 0.02:
+Animation 2: FadeIn(ImageMobject), etc.:   0%|          | 0/9 [00:00<?, ?it/s]                                                                              /Users/femon/brutalist.art/runtime/qc/manim_layout_audit.py:154: DeprecationWarning: This method is not guaranteed to stay around. Please prefer getting the attribute normally.
+  anchors = mob.get_anchors()
+Animation 5: Create(Rectangle):   0%|          | 0/9 [00:00<?, ?it/s]                                                                     Animation 7: LaggedStart(Group), etc.:   0%|          | 0/12 [00:00<?, ?it/s]                                                                             Animation 9: LaggedStart(Group):   0%|          | 0/9 [00:00<?, ?it/s]                                                                      [audit] scenes: 17 snapshots → CLEAN
+[audit] report: /Users/femon/brutalist.art/my-pitch/checkedsql-film/layout_audit.md
+[run] rendering B10_Resources
+Manim Community v0.20.1
+
+Animation 0: FadeIn(Rectangle):   0%|          | 0/10 [00:00<?, ?it/s]                                                                      [11/24/26 18:30:58] INFO     Animation 0 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B10                         
+                             _Resources/1697911619_5840                         
+                             29906_468760422.mp4'                               
+                    INFO     Animation 1 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B10                         
+                             _Resources/1167814662_1211                         
+                             285444_655989053.mp4'                              
+Animation 2: FadeIn(ImageMobject), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 2: FadeIn(ImageMobject), etc.:  20%|██        | 3/15 [00:00<00:00, 20.85it/s]Animation 2: FadeIn(ImageMobject), etc.:  40%|████      | 6/15 [00:00<00:00, 20.94it/s]Animation 2: FadeIn(ImageMobject), etc.:  60%|██████    | 9/15 [00:00<00:00, 21.26it/s]Animation 2: FadeIn(ImageMobject), etc.:  80%|████████  | 12/15 [00:00<00:00, 21.08it/s]Animation 2: FadeIn(ImageMobject), etc.: 100%|██████████| 15/15 [00:00<00:00, 21.12it/s]                                                                                        [11/24/26 18:30:59] INFO     Animation 2 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B10                         
+                             _Resources/1167814662_2012                         
+                             268069_2085953094.mp4'                             
+[11/24/26 18:31:00] INFO     Animation 3 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B10                         
+                             _Resources/1167814662_4092                         
+                             26700_677841827.mp4'                               
+Animation 4: FadeIn(Text('free')), etc.:   0%|          | 0/12 [00:00<?, ?it/s]                                                                                                   INFO     Animation 4 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B10                         
+                             _Resources/1167814662_3109                         
+                             969368_3029634056.mp4'                             
+                    INFO     Animation 5 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B10                         
+                             _Resources/1167814662_1122                         
+                             095813_2166920877.mp4'                             
+Animation 6: Create(VGroup of 3 submobjects), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 6: Create(VGroup of 3 submobjects), etc.:  93%|█████████▎| 14/15 [00:00<00:00, 132.58it/s]                                                                                                    [11/24/26 18:31:01] INFO     Animation 6 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B10                         
+                             _Resources/1167814662_1887                         
+                             166509_4176411455.mp4'                             
+[11/24/26 18:31:02] INFO     Animation 7 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B10                         
+                             _Resources/1167814662_2086                         
+                             652729_1059718748.mp4'                             
+Animation 8: FadeIn(ImageMobject), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 8: FadeIn(ImageMobject), etc.:  33%|███▎      | 5/15 [00:00<00:00, 44.46it/s]Animation 8: FadeIn(ImageMobject), etc.:  67%|██████▋   | 10/15 [00:00<00:00, 44.25it/s]Animation 8: FadeIn(ImageMobject), etc.: 100%|██████████| 15/15 [00:00<00:00, 42.92it/s]                                                                                        [11/24/26 18:31:03] INFO     Animation 8 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B10                         
+                             _Resources/1167814662_1840                         
+                             690875_3348848454.mp4'                             
+                    INFO     Animation 9 : Partial      scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B10                         
+                             _Resources/1167814662_3556                         
+                             722693_4217806258.mp4'                             
+Animation 10: LaggedStart(Group), etc.:   0%|          | 0/27 [00:00<?, ?it/s]Animation 10: LaggedStart(Group), etc.:  52%|█████▏    | 14/27 [00:00<00:00, 133.65it/s]                                                                                        [11/24/26 18:31:04] INFO     Animation 10 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B10                         
+                             _Resources/1167814662_3299                         
+                             629665_2506306421.mp4'                             
+                    INFO     Animation 11 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B10                         
+                             _Resources/1167814662_2699                         
+                             49451_2993963723.mp4'                              
+Animation 12: LaggedStart(Group):   0%|          | 0/22 [00:00<?, ?it/s]Animation 12: LaggedStart(Group):  77%|███████▋  | 17/22 [00:00<00:00, 169.86it/s]                                                                                                      INFO     Animation 12 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B10                         
+                             _Resources/1167814662_3072                         
+                             926255_984819912.mp4'                              
+[11/24/26 18:31:05] INFO     Animation 13 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B10                         
+                             _Resources/1167814662_1401                         
+                             233210_3290210239.mp4'                             
+Animation 14: FadeIn(VGroup of 3 submobjects), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 14: FadeIn(VGroup of 3 submobjects), etc.:  93%|█████████▎| 14/15 [00:00<00:00, 135.41it/s]                                                                                                     [11/24/26 18:31:06] INFO     Animation 14 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B10                         
+                             _Resources/1167814662_4057                         
+                             757909_4195801374.mp4'                             
+                    INFO     Animation 15 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B10                         
+                             _Resources/1167814662_1177                         
+                             540666_3432266304.mp4'                             
+Animation 16: Create(VGroup of 2 submobjects):   0%|          | 0/10 [00:00<?, ?it/s]                                                                                     [11/24/26 18:31:07] INFO     Animation 16 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B10                         
+                             _Resources/1167814662_4167                         
+                             447737_48282838.mp4'                               
+[11/24/26 18:31:08] INFO     Animation 17 : Partial     scene_file_writer.py:601
+                             movie file written in                              
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/partial_movie_files/B10                         
+                             _Resources/1167814662_2037                         
+                             032966_1654269024.mp4'                             
+                    INFO     Combining to Movie file.   scene_file_writer.py:753
+                    INFO                                scene_file_writer.py:904
+                             File ready at                                      
+                             '/Users/femon/brutalist.ar                         
+                             t/my-pitch/checkedsql-film                         
+                             /media/videos/scenes/2160p                         
+                             24/B10_Resources.mp4'                              
+                                                                                
+                    INFO     Rendered B10_Resources                 scene.py:278
+                             Played 18 animations                               
+You are using manim version v0.20.1, but version v0.22.1 is available.
+You should consider upgrading via pip install -U manim
+Animation 0: FadeIn(Rectangle):   0%|          | 0/6 [00:00<?, ?it/s]                                                                     /Users/femon/brutalist.art/runtime/qc/manim_layout_audit.py:149: DeprecationWarning: This method is not guaranteed to stay around. Please prefer getting the attribute normally.
+  if float(mob.get_stroke_opacity()) <= 0.02:
+Animation 2: FadeIn(ImageMobject), etc.:   0%|          | 0/9 [00:00<?, ?it/s]Animation 2: FadeIn(ImageMobject), etc.:  78%|███████▊  | 7/9 [00:00<00:00, 69.08it/s]                                                                                      /Users/femon/brutalist.art/runtime/qc/manim_layout_audit.py:154: DeprecationWarning: This method is not guaranteed to stay around. Please prefer getting the attribute normally.
+  anchors = mob.get_anchors()
+Animation 4: FadeIn(Text('free')), etc.:   0%|          | 0/8 [00:00<?, ?it/s]                                                                              Animation 6: Create(VGroup of 3 submobjects), etc.:   0%|          | 0/9 [00:00<?, ?it/s]                                                                                         Animation 8: FadeIn(ImageMobject), etc.:   0%|          | 0/9 [00:00<?, ?it/s]                                                                              Animation 10: LaggedStart(Group), etc.:   0%|          | 0/17 [00:00<?, ?it/s]                                                                              Animation 12: LaggedStart(Group):   0%|          | 0/14 [00:00<?, ?it/s]                                                                        Animation 14: FadeIn(VGroup of 3 submobjects), etc.:   0%|          | 0/9 [00:00<?, ?it/s]                                                                                          Animation 16: Create(VGroup of 2 submobjects):   0%|          | 0/6 [00:00<?, ?it/s]                                                                                    [audit] scenes: 27 snapshots → CLEAN
+[audit] report: /Users/femon/brutalist.art/my-pitch/checkedsql-film/layout_audit.md
 [remotion] nothing to do — no shot.remotion.pattern beats
-[art] compiled B05  MANIM    20.5s  ← B05.mp4
-[art] motion histogram: graphic:10
-[art] build stamp → beat_sheet.json (10/10 filled)
-[art] QC contact sheet → /Users/femon/brutalist.art/my-pitch/checkedsql-pitch/qc-sheet.png
-[art] wrote /Users/femon/brutalist.art/my-pitch/checkedsql-pitch/checkedsql-pitch-slate.mp4  (181.3s, audio: per-beat timeline (source audio preserved), drawtext: no — PIL overlays)
-[art] slots: 10/10 filled — B01:MANIM B02:MANIM B03:MANIM B04:MANIM B05:MANIM B06:MANIM B07:MANIM B08:MANIM B09:MANIM B10:MANIM
+[art] compiled B02  MANIM    15.8s  ← B02.mp4
+[art] compiled B09  MANIM    17.0s  ← B09.mp4
+[art] compiled B10  MANIM    22.5s  ← B10.mp4
+[art] motion histogram: graphic:14
+[art] build stamp → beat_sheet.json (14/14 filled)
+[art] QC contact sheet → /Users/femon/brutalist.art/my-pitch/checkedsql-film/qc-sheet.png
+[art] wrote /Users/femon/brutalist.art/my-pitch/checkedsql-film/checkedsql-film-slate.mp4  (240.8s, audio: per-beat timeline (source audio preserved), drawtext: no — PIL overlays)
+[art] slots: 14/14 filled — B01:MANIM B02:MANIM B03:MANIM B04:MANIM B05:MANIM B06:MANIM B07:MANIM B08:MANIM B09:MANIM B10:MANIM B11:MANIM B12:MANIM B13:MANIM B14:MANIM
 [run] GATE V — frame-level visual QC on the compiled reel
-[gate-v] frames=20 BLOCKER=0 MAJOR=0 → /Users/femon/brutalist.art/my-pitch/checkedsql-pitch/_qc/REPORT.md
-[run] done → /Users/femon/brutalist.art/my-pitch/checkedsql-pitch  (QC gates: on)
+[gate-v] frames=28 BLOCKER=0 MAJOR=0 → /Users/femon/brutalist.art/my-pitch/checkedsql-film/_qc/REPORT.md
+[run] done → /Users/femon/brutalist.art/my-pitch/checkedsql-film  (QC gates: on)
 [run] REVIEW built; no final exported. Use ./art final <reel> for a verified master.
-[run] any remaining slates are YOUR slots — see /Users/femon/brutalist.art/my-pitch/checkedsql-pitch/SHOTLIST.md
+[run] any remaining slates are YOUR slots — see /Users/femon/brutalist.art/my-pitch/checkedsql-film/SHOTLIST.md

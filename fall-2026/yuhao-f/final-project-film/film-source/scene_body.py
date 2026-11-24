@@ -1,13 +1,5 @@
-
-# ═════════════════════════════ CheckedSQL pitch — film cast + scenes ═════════════════════════════
-# Built by: cat <toolkit>/skills/make/show-tell/templates/iso_kit.py scene_body.py > scenes.py
-# Cast, kept the whole film: the question bubble, the SQL card, the Claude mark, the database,
-# the checked-answer card, the check / cross verdicts, the results ledger.
-# Every drawn beat carries a small "constructed" tag; B06 and B08 show the real 2026-10-21
-# screenshots with their date and a "real screenshot" tag.
-
 _REEL = _os.path.dirname(_os.path.abspath(__file__))
-_REEL_FALLBACK = "/Users/femon/brutalist.art/my-pitch/checkedsql-pitch"   # Gate A runs scenes.py from a temp copy
+_REEL_FALLBACK = "/Users/femon/brutalist.art/my-pitch/checkedsql-film"   # Gate A runs scenes.py from a temp copy
 
 
 def _asset(name):
@@ -164,304 +156,442 @@ def pipeline(y=1.0, s=1.0):
     return g
 
 
+# ═════════════════════════════ extra cast for the project film ═════════════════════════════
+
+def stack(x, y, n=6, w=1.5, h=0.22, label=None):
+    """A tall stack of question pages (a benchmark): flat slabs with thin gaps."""
+    g = VGroup()
+    for i in range(n):
+        g.add(Rectangle(width=w, height=h, fill_color=PAGE_TOP if i % 2 == 0 else PAGE_L, fill_opacity=1,
+                        stroke_color=INK, stroke_width=3).move_to([x + (0.05 if i % 2 else 0), y + i * (h + 0.05), 0]))
+    return g
+
+
+def lock(x, y, s=0.32):
+    shackle = Arc(radius=s * 0.62, start_angle=0, angle=PI, color=INK, stroke_width=7).move_to([x, y + s * 0.62, 0])
+    body = RoundedRectangle(width=s * 1.9, height=s * 1.45, corner_radius=0.06, fill_color=BOX_R, fill_opacity=1,
+                            stroke_color=INK, stroke_width=4).move_to([x, y, 0])
+    hole = Dot([x, y + 0.02, 0], radius=0.06, color=INK)
+    return VGroup(shackle, body, hole)
+
+
+def key_outline(x, y, color=GHOST, sw=7):
+    ring = Circle(radius=0.32, color=color, stroke_width=sw).move_to([x - 0.65, y, 0])
+    shaft = Line([x - 0.33, y, 0], [x + 0.75, y, 0], color=color, stroke_width=sw)
+    teeth = VGroup(Line([x + 0.45, y, 0], [x + 0.45, y - 0.25, 0], color=color, stroke_width=sw),
+                   Line([x + 0.7, y, 0], [x + 0.7, y - 0.3, 0], color=color, stroke_width=sw))
+    return VGroup(ring, shaft, teeth)
+
+
+def note(x, y, s=0.5):
+    head = Ellipse(width=s * 0.75, height=s * 0.52, fill_color=INK, fill_opacity=1, stroke_width=0).move_to([x, y, 0]).rotate(0.4)
+    stem = Line([x + s * 0.33, y + 0.05, 0], [x + s * 0.33, y + s * 1.5, 0], color=INK, stroke_width=6)
+    flag = Line([x + s * 0.33, y + s * 1.5, 0], [x + s * 0.8, y + s * 1.05, 0], color=INK, stroke_width=6)
+    return VGroup(head, stem, flag)
+
+
+def meter(x, y, w=3.2, h=0.5):
+    frame = Rectangle(width=w, height=h, fill_color=CARD, fill_opacity=1, stroke_color=INK, stroke_width=4).move_to([x, y, 0])
+    return frame
+
+
+def fill_bar(frame, frac, color=BAR2):
+    w, h = frame.width, frame.height
+    x0 = frame.get_left()[0]
+    return Rectangle(width=max(0.02, (w - 0.12) * frac), height=h - 0.12, fill_color=color, fill_opacity=1,
+                     stroke_width=0).move_to([x0 + 0.06 + (w - 0.12) * frac / 2, frame.get_center()[1], 0])
+
+
+def gate(x, y, h=1.6):
+    posts = VGroup(Rectangle(width=0.16, height=h, fill_color=BOX_R, fill_opacity=1, stroke_color=INK, stroke_width=3).move_to([x - 0.45, y, 0]),
+                   Rectangle(width=0.16, height=h, fill_color=BOX_R, fill_opacity=1, stroke_color=INK, stroke_width=3).move_to([x + 0.45, y, 0]))
+    beam = Rectangle(width=1.06, height=0.16, fill_color=BOX_R, fill_opacity=1, stroke_color=INK, stroke_width=3).move_to([x, y + h / 2, 0])
+    return VGroup(posts, beam)
+
+
+def evidence(self, name, h, cx, cy, iw, ih, date, kind):
+    """A real image (screenshot or captured output) with an ink frame, date and tag captions."""
+    w = h * iw / ih
+    shot = img(name, cx, cy, h)
+    frame = Rectangle(width=w, height=h, stroke_color=INK, stroke_width=4, fill_opacity=0).move_to([cx, cy, 0])
+    return shot, frame, w
+
+
+def hl_row(cx, cy, w, h, ih, y0, y1, x0=0.0, x1=1.0):
+    """Terracotta outline around image rows y0..y1 (pixels of an image ih px tall), x as fractions."""
+    ppu = h / ih
+    top, left = cy + h / 2, cx - w / 2
+    r = Rectangle(width=(x1 - x0) * w, height=(y1 - y0) * ppu + 0.1, stroke_color=TERRA, stroke_width=6, fill_opacity=0)
+    return r.move_to([left + (x0 + x1) / 2 * w, top - (y0 + y1) / 2 * ppu, 0])
+
+
 # ═════════════════════════════ scenes ═════════════════════════════
+# Part 1 — executive summary
 
-class B01_Hook(Scene):
+class B01_WhatItIs(Scene):
     def construct(self):
         self.add(tag())
-        q = bubble(-4.3, 0.7, 2.1, 1.5)
-        a = arrow((-2.9, 0.4), (-0.6, 0.4))
-        card = sql_card(1.6, 0.3, 2.0, 2.5, n=4)
-        G(self, GrowFromCenter(q), rt=0.6)
-        G(self, GrowArrow(a), rt=0.5)
-        G(self, FadeIn(card, shift=DOWN * 0.3), rt=0.6)
-        lab = T("SQL", 40).move_to([1.6, -1.45, 0])
-        G(self, FadeIn(lab), rt=0.4)
-        until(self, "looks right")
-        ok = check(3.25, 1.15, s=0.28, w=9)
-        looks = T("Looks right.", 40).move_to([4.6, 0.2, 0])
-        G(self, Create(ok), FadeIn(looks), rt=0.6)
-        until(self, "how would you know")
-        qm = T("?", 120, bold=True).move_to([1.6, 2.45, 0])
-        isit = T("Is it?", 40).move_to([4.6, -0.5, 0])
-        G(self, FadeIn(qm, shift=DOWN * 0.4), FadeIn(isit), rt=0.6)
-        G(self, Indicate(qm, color=INK, scale_factor=1.15), rt=0.8)
-        finish(self)
-
-
-class B02_Pipeline(Scene):
-    def construct(self):
-        self.add(tag())
-        p = pipeline(1.1)
+        p = pipeline(0.9)
         xs = p["xs"]
-        labs = {k: T(t, 40).move_to([xs[i] + (0.3 if k == "q" else 0), -0.45, 0]) for k, t, i in
-                (("q", "question", 0), ("sql", "SQL", 2), ("db", "run", 3), ("cmp", "compare", 4))}
-        G(self, GrowFromCenter(p["q"]), FadeIn(labs["q"]), rt=0.6)
-        until(self, "turns English questions")
+        q_lab = T("question", 40).move_to([xs[0] + 0.3, -0.65, 0])
+        G(self, GrowFromCenter(p["q"]), FadeIn(q_lab), rt=0.6)
+        until(self, "an AI to write SQL")
         G(self, GrowArrow(p["arrows"][0]), FadeIn(p["claude"]), rt=0.6)
-        until(self, "into SQL")
-        G(self, GrowArrow(p["arrows"][1]), FadeIn(p["sql"], shift=DOWN * 0.2), FadeIn(labs["sql"]), rt=0.6)
-        until(self, "runs every query")
-        G(self, GrowArrow(p["arrows"][2]), FadeIn(p["db"], shift=DOWN * 0.2), FadeIn(labs["db"]), rt=0.6)
-        until(self, "checks the result")
-        G(self, GrowArrow(p["arrows"][3]), FadeIn(p["cmp"], shift=DOWN * 0.2), FadeIn(labs["cmp"]), rt=0.6)
-        G(self, GrowArrow(p["fork"][0]), GrowArrow(p["fork"][1]), rt=0.5)
-        G(self, Create(p["ok"]), Create(p["bad"]), rt=0.6)
-        until(self, "GitHub repository")
-        back, front = Iso(0.6, -3.0, 0.62).open_box(0, 0, 0, 2.2, 1.6, 1.1)
-        gh = img("github-01.png", -1.1, -2.15, 0.95)
-        repo = T("GitHub repo", 40).move_to([3.4, -2.15, 0])
-        G(self, FadeIn(back), FadeIn(front), FadeIn(gh), FadeIn(repo), rt=0.6)
-        until(self, "a test set")
-        iso = Iso(0.6, -3.0, 0.62)
-        items = [iso.page(0.25, 0.2, 0.15, 0.8, 1.1), iso.page(0.75, 0.25, 0.35, 0.8, 1.1), iso.page(1.25, 0.3, 0.55, 0.8, 1.1)]
-        for it in items:
-            it.set_z_index(1)
-        for phrase, it in zip(("a test set", "saved results", "a failure analysis"), items):
-            until(self, phrase)
-            G(self, FadeIn(it, shift=DOWN * 0.5), rt=0.45)
+        G(self, GrowArrow(p["arrows"][1]), FadeIn(p["sql"], shift=DOWN * 0.2), FadeIn(T("SQL", 40).move_to([xs[2], -0.65, 0])), rt=0.6)
+        until(self, "looks right")
+        ok = check(xs[2] + 0.75, 2.0, s=0.22, w=8)
+        G(self, Create(ok), rt=0.5)
+        until(self, "CheckedSQL")
+        name = T("CheckedSQL", 64, bold=True).move_to([0, 2.75, 0])
+        G(self, FadeIn(name), FadeOut(ok), rt=0.6)
+        until(self, "runs it on a real database")
+        G(self, GrowArrow(p["arrows"][2]), FadeIn(p["db"], shift=DOWN * 0.2), FadeIn(T("run", 40).move_to([xs[3], -0.65, 0])), rt=0.6)
+        until(self, "compares the answer")
+        G(self, GrowArrow(p["arrows"][3]), FadeIn(p["cmp"], shift=DOWN * 0.2), FadeIn(T("compare", 40).move_to([xs[4], -0.65, 0])), rt=0.6)
+        G(self, GrowArrow(p["fork"][0]), GrowArrow(p["fork"][1]), rt=0.4)
+        G(self, Create(p["ok"]), Create(p["bad"]), rt=0.5)
+        until(self, "checked by hand")
+        hand = T("checked by hand", 40).move_to([0, -2.1, 0])
+        G(self, FadeIn(hand), rt=0.4)
         finish(self)
 
 
-class B03_TwoBoxes(Scene):
+class B02_WhyCare(Scene):
     def construct(self):
         self.add(tag())
-        il, ir = Iso(-3.6, -1.4, 0.75), Iso(2.0, -1.4, 0.75)
-        lb, lf = il.open_box(0, 0, 0, 2.2, 1.8, 1.2)
-        rb, rf = ir.open_box(0, 0, 0, 2.2, 1.8, 1.2)
-        G(self, FadeIn(lb), FadeIn(lf), rt=0.6)
-        until(self, "They generate SQL")
-        lp = il.page(0.5, 0.4, 0.9, 1.0, 1.2).set_z_index(1)
-        llab = T("generates SQL", 40).move_to([-3.6, -2.5, 0])
-        G(self, FadeIn(lp, shift=DOWN * 0.6), FadeIn(llab), rt=0.6)
-        until(self, "CheckedSQL will")
-        rp = ir.page(0.5, 0.4, 0.9, 1.0, 1.2).set_z_index(1)
-        led = ledger(5.05, 0.75, [1, 1, 0, 1], w=2.0)
-        rlab = T("+ every failure", 40).move_to([2.6, -2.5, 0])
-        G(self, FadeIn(rb), FadeIn(rf), FadeIn(rp, shift=DOWN * 0.6), FadeIn(rlab), rt=0.6)
-        G(self, FadeIn(led[0]), Create(led.rows), rt=0.6)
-        G(self, LaggedStart(*[Create(v) for v in led.verdicts], lag_ratio=0.3), rt=0.9)
-        until(self, "its mistakes will be visible")
-        bad = led.verdicts[2]
-        ring = Circle(radius=0.3, color=TERRA, stroke_width=6).move_to(np.array(bad.get_center()))
-        more = T("More checkable.", 44).move_to([0, 2.75, 0])
-        G(self, Create(ring), FadeIn(more), rt=0.6)
+        a = paper(-3.2, 0.4, 2.3, 2.8)
+        b = paper(0.2, 0.4, 2.3, 2.8)
+        la = VGroup(*[scribble(-4.0, 1.35 - i * 0.5, 1.6 if i < 3 else 1.0, amp=0.11) for i in range(4)])
+        lb = VGroup(*[scribble(-0.6, 1.35 - i * 0.5, 1.6 if i < 3 else 1.0, amp=0.11) for i in range(4)])
+        G(self, FadeIn(a, shift=DOWN * 0.3), FadeIn(b, shift=DOWN * 0.3), rt=0.6)
+        G(self, Create(la), Create(lb), FadeIn(T("answer", 40).move_to([-3.2, -1.45, 0])), FadeIn(T("answer", 40).move_to([0.2, -1.45, 0])), rt=0.8)
+        until(self, "just as confident")
+        ca, cb = check(-2.35, 2.0, s=0.22, w=8), check(1.05, 2.0, s=0.22, w=8)
+        G(self, Create(ca), Create(cb), rt=0.6)
+        until(self, "makes those mistakes visible")
+        mag = magnifier(-3.6, 0.6, 0.6)
+        G(self, FadeIn(mag), rt=0.4)
+        G(self, mag.animate.shift(np.array([3.6, -0.1, 0])), rt=1.0)
+        bad = cross(1.05, 2.0, s=0.2, w=8)
+        G(self, FadeOut(cb), Create(bad), FadeIn(T("wrong", 40).move_to([0.2, -2.15, 0])), rt=0.6)
+        until(self, "checks whether the checker itself")
+        iso = Iso(4.4, -1.2, 0.75)
+        box = iso.box(-1.0, -1.0, 0, 2.0, 2.0, 1.3)
+        lights = VGroup(*[Dot(iso.p(-1.0, -1.0 + f * 2.0, 0.65), radius=0.08, color=GHOST) for f in (0.3, 0.7)])
+        G(self, FadeIn(box, shift=DOWN * 0.3), FadeIn(lights), FadeIn(T("checker", 40).move_to([4.4, -2.45, 0])), rt=0.6)
+        G(self, mag.animate.move_to(np.array([4.6, 1.1, 0])), rt=1.0)
+        q = T("?", 96, bold=True).move_to([5.7, 2.4, 0])
+        G(self, FadeIn(q), rt=0.4)
         finish(self)
 
 
-class B04_Reviewer(Scene):
+# Part 2 — introduction: what others have done
+
+class B03_Benchmarks(Scene):
     def construct(self):
         self.add(tag())
-        readme = paper(-3.6, 0.35, 2.6, 3.2)
-        lines = VGroup(*[scribble(-4.6, 1.45 - i * 0.55, 1.45, amp=0.05) for i in range(5)])
-        G(self, FadeIn(readme, shift=DOWN * 0.3), rt=0.6)
-        G(self, Create(lines), FadeIn(T("README", 40).move_to([-3.6, -1.75, 0])), rt=0.7)
-        until(self, "In the first minute")
-        sw = stopwatch(0.6, 0.45, 1.1)
-        G(self, FadeIn(sw), FadeIn(T("60 s", 40).move_to([0.6, -1.15, 0])), rt=0.5)
-        G(self, Rotate(sw.hand, angle=-2 * PI, about_point=np.array([0.6, 0.45, 0])), rt=2.2)
-        until(self, "how many questions matched")
-        marks = [1, 1, 0, 1, 0]
-        vs = VGroup(*[(check(-2.75, 1.5 - i * 0.55, s=0.13, w=6) if m else cross(-2.7, 1.45 - i * 0.55, s=0.12, w=6))
-                      for i, m in enumerate(marks)])
-        G(self, LaggedStart(*[Create(v) for v in vs], lag_ratio=0.25), rt=1.0)
-        until(self, "rerun the check")
-        term = Iso(4.0, -0.6, 0.8).box(-0.9, -0.9, 0, 1.8, 1.8, 0.9, DARK_TOP, DARK_L, DARK_R)
-        loop = Arc(radius=0.55, start_angle=PI * 0.6, angle=PI * 1.6, color=INK, stroke_width=7).move_to([4.0, 1.75, 0])
+        s1 = stack(-4.6, -1.6, n=9)
+        G(self, LaggedStart(*[FadeIn(r, shift=DOWN * 0.3) for r in s1], lag_ratio=0.12), rt=1.0)
+        until(self, "Spider, from 2018")
+        G(self, FadeIn(T("Spider 2018", 40).move_to([-4.6, -2.35, 0])), rt=0.5)
+        until(self, "ten thousand questions")
+        G(self, FadeIn(T("~10k questions", 36).move_to([-4.6, 1.55, 0])), rt=0.5)
+        until(self, "BIRD, from 2023")
+        s2 = stack(-1.6, -1.6, n=11)
+        G(self, LaggedStart(*[FadeIn(r, shift=DOWN * 0.3) for r in s2], lag_ratio=0.1), FadeIn(T("BIRD 2023", 40).move_to([-1.6, -2.35, 0])), rt=1.0)
+        until(self, "over twelve thousand")
+        G(self, FadeIn(T("12.7k", 36).move_to([-1.6, 2.1, 0])), rt=0.5)
+        until(self, "ChatGPT got about forty percent")
+        base = Line([1.4, -1.6, 0], [5.9, -1.6, 0], color=INK, stroke_width=4)
+        b1 = Rectangle(width=1.1, height=4.0 * 0.40, fill_color=BAR1, fill_opacity=1, stroke_color=INK, stroke_width=3).move_to([2.6, -1.6 + 0.8, 0])
+        gpt = img("chatgpt-01.png", 2.6, -2.25, 0.6)
+        G(self, Create(base), FadeIn(gpt), rt=0.5)
+        G(self, GrowFromEdge(b1, DOWN), FadeIn(T("40%", 40).move_to([2.6, 0.55, 0])), rt=0.8)
+        until(self, "ninety-three percent for people")
+        b2 = Rectangle(width=1.1, height=4.0 * 0.93, fill_color=BAR2, fill_opacity=1, stroke_color=INK, stroke_width=3).move_to([4.6, -1.6 + 1.86, 0])
+        G(self, GrowFromEdge(b2, DOWN), FadeIn(T("people", 36).move_to([4.6, -2.25, 0])), rt=0.8)
+        G(self, FadeIn(T("93%", 40).move_to([4.6, 2.65, 0])), FadeIn(T("per BIRD paper", 32).move_to([1.9, 2.9, 0])), rt=0.5)
+        finish(self)
+
+
+class B04_CheckerWrong(Scene):
+    def construct(self):
+        self.add(tag())
+        pp = paper(-5.0, -1.2, 1.5, 1.9)
+        G(self, FadeIn(pp, shift=DOWN * 0.3), Create(VGroup(*[scribble(-5.5, -0.6 - i * 0.45, 1.0, amp=0.11) for i in range(3)])), rt=0.7)
+        G(self, FadeIn(T("2020 paper", 36).move_to([-5.0, -2.6, 0])), rt=0.4)
+        until(self, "running a query on just one database")
+        wrong = sql_card(-2.4, 1.3, 1.2, 1.5, n=3, amp=0.11)
+        gold = sql_card(-2.4, -1.2, 1.2, 1.5, n=3, amp=0.11)
+        G(self, FadeIn(wrong, shift=DOWN * 0.2), FadeIn(gold, shift=DOWN * 0.2), rt=0.6)
+        G(self, FadeIn(T("wrong", 36).move_to([-3.85, 1.3, 0])), FadeIn(T("gold", 36).move_to([-3.75, -1.2, 0])), rt=0.4)
+        db = cylinder(0.3, 0.05, 1.3, 1.3)
+        a1, a2 = arrow((-1.6, 1.1), (-0.5, 0.35), color=BAR1, sw=7), arrow((-1.6, -1.0), (-0.5, -0.25), color=BAR1, sw=7)
+        G(self, FadeIn(db, shift=DOWN * 0.2), GrowArrow(a1), GrowArrow(a2), rt=0.6)
+        until(self, "false positive")
+        r1, r2 = paper(2.5, 1.0, 1.0, 0.8), paper(2.5, -0.9, 1.0, 0.8)
+        o1, o2 = arrow((1.1, 0.35), (1.9, 0.9), color=BAR1, sw=7), arrow((1.1, -0.25), (1.9, -0.8), color=BAR1, sw=7)
+        G(self, GrowArrow(o1), GrowArrow(o2), FadeIn(r1), FadeIn(r2), rt=0.6)
+        same = T("same answer", 36).move_to([2.5, 2.0, 0])
+        G(self, FadeIn(same), Create(check(3.2, 1.0, s=0.17, w=7)), Create(check(3.2, -0.9, s=0.17, w=7)), rt=0.5)
+        until(self, "test each query on many databases")
+        more = VGroup(*[cylinder(4.9, y, 0.8, 0.7) for y in (1.3, 0.0, -1.3)])
+        G(self, LaggedStart(*[FadeIn(m, shift=DOWN * 0.2) for m in more], lag_ratio=0.25), rt=0.8)
+        x = cross(5.8, 1.3, s=0.18, w=7)
+        G(self, Create(x), FadeIn(T("many databases", 36).move_to([4.7, -2.35, 0])), rt=0.5)
+        finish(self)
+
+
+class B05_Tools(Scene):
+    def construct(self):
+        self.add(tag())
+        win = window(-2.8, 0.4, 4.2, 3.2)
+        G(self, FadeIn(win, shift=DOWN * 0.3), rt=0.6)
+        G(self, FadeIn(T("chat with your database", 36).move_to([-2.8, -1.65, 0])), rt=0.4)
+        until(self, "chat with your database")
+        q = bubble(-3.6, 0.6, 1.4, 0.95)
+        G(self, GrowFromCenter(q), rt=0.5)
+        until(self, "get SQL back")
+        s = sql_card(-1.5, 0.15, 1.1, 1.3, n=3)
+        G(self, FadeIn(s, shift=LEFT * 0.4), rt=0.6)
+        until(self, "They don't hand you")
+        led = ledger(3.3, 0.4, [1, 1, 1, 1], w=2.2)
+        G(self, FadeIn(led[0]), rt=0.4)
+        ghost_rows = VGroup(*[Line([2.45, y, 0], [3.7, y, 0], color=GHOST, stroke_width=5) for y in np.linspace(1.15, -0.35, 4)])
+        G(self, Create(ghost_rows), FadeIn(T("record of wrong answers", 36).move_to([3.3, -1.65, 0])), rt=0.6)
+        nx = cross(4.6, 2.05, s=0.2, w=8)
+        G(self, Create(nx), rt=0.4)
+        finish(self)
+
+
+class B06_WhyMine(Scene):
+    def construct(self):
+        self.add(tag())
+        big = VGroup(stack(-5.0, -1.6, n=9), stack(-3.2, -1.6, n=11))
+        big.set_opacity(0.35)
+        G(self, FadeIn(big), FadeIn(T("benchmarks", 36).move_to([-4.1, -2.35, 0])), rt=0.6)
+        until(self, "It isn't a new benchmark")
+        iso = Iso(1.3, -1.9, 0.7)
+        back, front = iso.open_box(0, 0, 0, 2.2, 1.8, 1.1)
+        G(self, FadeIn(back), FadeIn(front), FadeIn(T("CheckedSQL", 40, bold=True).move_to([1.6, -2.65, 0])), rt=0.6)
+        until(self, "read every question")
+        pages = [iso.page(0.25 + 0.5 * i, 0.25, 0.15 + 0.2 * i, 0.8, 1.0).set_z_index(1) for i in range(3)]
+        G(self, LaggedStart(*[FadeIn(pg, shift=DOWN * 0.5) for pg in pages], lag_ratio=0.3), FadeIn(T("20 questions", 36).move_to([1.6, 2.5, 0])), rt=0.9)
+        until(self, "check every answer")
+        G(self, Create(check(3.6, 1.4, s=0.26, w=9)), rt=0.5)
+        until(self, "rerun everything with one command")
+        loop = Arc(radius=0.55, start_angle=PI * 0.6, angle=PI * 1.6, color=INK, stroke_width=7).move_to([4.9, 0.0, 0])
         tip = Dot(np.array(loop.get_end()), radius=0.1, color=TERRA)
-        G(self, FadeIn(term, shift=DOWN * 0.3), FadeIn(T("rerun", 40).move_to([4.0, -1.75, 0])), rt=0.5)
-        G(self, Create(loop), rt=0.6)
+        G(self, Create(loop), FadeIn(T("one command", 36).move_to([4.9, -1.05, 0])), rt=0.6)
         G(self, GrowFromCenter(tip), rt=0.3)
+        until(self, "blind spots")
+        mag = magnifier(0.2, 1.3, 0.45)
+        G(self, FadeIn(mag), rt=0.4)
+        G(self, mag.animate.shift(np.array([0.9, -0.3, 0])), rt=0.8)
         finish(self)
 
 
-class B05_ThreeThings(Scene):
+# Part 3 — methods
+
+class B07_Data(Scene):
     def construct(self):
         self.add(tag())
-        # contract: a page with a seal
-        con = paper(-4.2, 0.6, 2.1, 2.6)
-        con_lines = scribbles_on(con, n=4, inset=0.3, gap=0.42)
-        seal = Dot([-3.55, -0.3, 0], radius=0.2, color=TERRA)
-        until(self, "a prompt contract")
-        G(self, FadeIn(con, shift=DOWN * 0.3), Create(con_lines), FadeIn(T("contract", 40).move_to([-4.2, -1.3, 0])), rt=0.7)
-        until(self, "exactly one SELECT")
-        G(self, GrowFromCenter(seal), rt=0.4)
-        until(self, "verification")
-        db = cylinder(0, 0.6, 1.8, 1.9)
-        ok = check(1.55, 1.75, s=0.28, w=9)
-        G(self, FadeIn(db, shift=DOWN * 0.3), FadeIn(T("verification", 40).move_to([0, -1.3, 0])), rt=0.6)
-        until(self, "read-only database")
-        G(self, Create(ok), rt=0.5)
-        until(self, "and evaluation")
-        ch = bars(4.2, -0.5, (0.9, 1.7, 1.25))
-        G(self, Create(ch[0]), FadeIn(T("evaluation", 40).move_to([4.2, -1.3, 0])), rt=0.5)
-        G(self, LaggedStart(*[GrowFromEdge(b, DOWN) for b in ch[1]], lag_ratio=0.25), rt=0.9)
-        until(self, "The evidence will be")
-        line = Line([-4.6, -2.45, 0], [4.6, -2.45, 0], color=BAR1, stroke_width=5)
-        dots = VGroup(*[Dot([x, -2.45, 0], radius=0.13, color=INK) for x in np.linspace(-4.2, 3.6, 7)])
-        last = Dot([4.4, -2.45, 0], radius=0.13, color=TERRA)
-        G(self, Create(line), LaggedStart(*[GrowFromCenter(d) for d in dots], lag_ratio=0.15), rt=0.6)
-        G(self, GrowFromCenter(last), rt=0.2)
-        finish(self)
-
-
-class B06_ExistsToday(Scene):
-    def construct(self):
-        shot = img("shot-check-gold-2026-10-21.png", 0, -0.05, 5.4)
-        frame = Rectangle(width=5.4 * 2120 / 1210, height=5.4, stroke_color=INK, stroke_width=4, fill_opacity=0).move_to([0, -0.05, 0])
-        date = T("2026-10-21", 36).move_to([-3.9, -3.15, 0])
-        real = T("real screenshot", 32).move_to([4.6, -3.15, 0])
-        self.add(date, real)
-        G(self, FadeIn(shot), Create(frame), rt=0.6)
-        exists = T("exists: test set, script", 36).move_to([-3.2, 3.1, 0])
-        G(self, FadeIn(exists), rt=0.5)
-        until(self, "a draft eval script")
-        w = 5.4 * 2120 / 1210
-        left, top = -w / 2, -0.05 + 2.7
-        ppu = 5.4 / 1210
-        hl = Rectangle(width=1440 * ppu, height=34 * ppu + 0.12, stroke_color=TERRA, stroke_width=6, fill_opacity=0)
-        hl.move_to([left + 720 * ppu + 0.02, top - 18 * ppu, 0])
-        G(self, Create(hl), rt=0.6)
-        until(self, "all twenty ran")
-        ok = check(-0.55, 3.12, s=0.18, w=7)
-        G(self, Create(ok), rt=0.5)
-        until(self, "The part that calls the model")
-        notyet = T("not yet: model run", 36).move_to([3.6, 3.1, 0])
-        G(self, FadeIn(notyet), rt=0.5)
-        finish(self)
-
-
-class B07_Scope(Scene):
-    def construct(self):
-        self.add(tag())
-        heads = [T(t, 44, bold=True).move_to([x, 2.6, 0]) for t, x in (("IN", -4.2), ("OUT", 0), ("FIRST", 4.2))]
-        rule = VGroup(*[Line([x, 2.1, 0], [x, -2.3, 0], color=GHOST, stroke_width=5) for x in (-2.1, 2.1)])
-        G(self, FadeIn(heads[0]), Create(rule), rt=0.6)
-        db = cylinder(-4.2, 0.0, 1.8, 1.9)
-        ok = check(-2.95, 1.25, s=0.24, w=8)
+        db = cylinder(-4.5, 0.2, 2.0, 2.0)
+        n = note(-4.7, 2.1, 0.45)
         G(self, FadeIn(db, shift=DOWN * 0.3), rt=0.6)
-        G(self, Create(ok), rt=0.4)
-        until(self, "Out:")
-        win = window(-0.45, 0.65, 2.0, 1.5)
-        dbs = VGroup(cylinder(0.45, -0.9, 0.9, 0.85, top=GHOST, side=BAR3), cylinder(1.35, -0.9, 0.9, 0.85, top=GHOST, side=BAR3))
-        G(self, FadeIn(heads[1]), FadeIn(win, shift=DOWN * 0.3), rt=0.6)
-        until(self, "no web interface")
-        x1 = cross(1.05, 1.15, s=0.24, w=8)
-        G(self, Create(x1), rt=0.4)
-        until(self, "no other databases")
-        x2 = cross(-0.8, -0.9, s=0.24, w=8)
-        G(self, FadeIn(dbs, shift=DOWN * 0.3), rt=0.5)
-        G(self, Create(x2), rt=0.4)
-        until(self, "The first piece")
-        q = bubble(3.2, 1.2, 1.2, 0.9)
-        G(self, FadeIn(heads[2]), GrowFromCenter(q), rt=0.6)
-        until(self, "end to end")
-        led = ledger(4.7, -0.55, [1], w=1.7, row=0.5)
-        a = arrow((3.25, 0.5), (3.9, -0.3))
-        G(self, GrowArrow(a), FadeIn(led[0]), Create(led.rows), rt=0.6)
-        until(self, "a results file")
-        G(self, Create(led.verdicts), rt=0.5)
+        G(self, FadeIn(n), FadeIn(T("Chinook", 40).move_to([-4.5, -1.6, 0])), rt=0.5)
+        until(self, "a made-up music store")
+        G(self, FadeIn(T("public sample data", 36).move_to([-4.5, -2.3, 0])), rt=0.5)
+        until(self, "twenty English questions")
+        qs = VGroup(*[bubble(-1.6 + 1.05 * (i % 5), 1.6 - 1.25 * (i // 5), 0.85, 0.6) for i in range(10)])
+        G(self, LaggedStart(*[GrowFromCenter(b) for b in qs], lag_ratio=0.08), FadeIn(T("20 questions", 36).move_to([0.5, 2.75, 0])), rt=1.0)
+        until(self, "a gold SQL answer")
+        golds = VGroup(*[sql_card(-1.6 + 1.05 * i, -1.2, 0.75, 0.95, n=2, amp=0.05) for i in range(5)])
+        G(self, LaggedStart(*[FadeIn(g, shift=DOWN * 0.2) for g in golds], lag_ratio=0.12), FadeIn(T("gold SQL", 36).move_to([0.5, -2.3, 0])), rt=0.9)
+        until(self, "checked every gold answer by hand")
+        ticks = VGroup(*[check(-1.25 + 1.05 * i, -0.55, s=0.13, w=6) for i in range(5)])
+        G(self, LaggedStart(*[Create(t) for t in ticks], lag_ratio=0.2), rt=0.9)
+        G(self, FadeIn(T("checked by hand", 36).move_to([4.6, -1.2, 0])), rt=0.4)
         finish(self)
 
 
-class B08_Risk(Scene):
+class B08_Pipeline(Scene):
+    def construct(self):
+        self.add(tag())
+        p = pipeline(0.7)
+        xs = p["xs"]
+        G(self, GrowFromCenter(p["q"]), rt=0.5)
+        until(self, "the model sees the database schema")
+        G(self, GrowArrow(p["arrows"][0]), FadeIn(p["claude"]), FadeIn(T("schema", 36).move_to([xs[1], -0.75, 0])), rt=0.6)
+        until(self, "a strict contract")
+        seal = Dot([xs[2] + 0.45, 0.0, 0], radius=0.18, color=TERRA)
+        G(self, GrowArrow(p["arrows"][1]), FadeIn(p["sql"], shift=DOWN * 0.2), rt=0.6)
+        G(self, GrowFromCenter(seal), FadeIn(T("one SELECT", 36).move_to([xs[2], -1.4, 0])), rt=0.5)
+        until(self, "checks the contract")
+        g = gate(xs[2], 0.7, 2.2)
+        G(self, FadeIn(g), FadeIn(T("contract", 36).move_to([xs[2], 2.35, 0])), rt=0.5)
+        until(self, "runs the query on a read-only copy")
+        G(self, GrowArrow(p["arrows"][2]), FadeIn(p["db"], shift=DOWN * 0.2), rt=0.6)
+        lk = lock(xs[3] + 0.85, 1.75, 0.26)
+        G(self, FadeIn(lk), FadeIn(T("read-only", 36).move_to([xs[3], -0.75, 0])), rt=0.5)
+        until(self, "five second limit")
+        sw = stopwatch(xs[3] + 0.4, -2.3, 0.5)
+        G(self, FadeIn(sw), FadeIn(T("5 s", 36).move_to([xs[3] + 1.35, -2.3, 0])), rt=0.5)
+        G(self, Rotate(sw.hand, angle=-PI, about_point=np.array([xs[3] + 0.4, -2.3, 0])), rt=0.8)
+        until(self, "compares the rows")
+        G(self, GrowArrow(p["arrows"][3]), FadeIn(p["cmp"], shift=DOWN * 0.2), FadeIn(T("compare", 36).move_to([xs[4], -0.75, 0])), rt=0.6)
+        G(self, GrowArrow(p["fork"][0]), GrowArrow(p["fork"][1]), rt=0.5)
+        G(self, Create(p["ok"]), Create(p["bad"]), rt=0.5)
+        finish(self)
+
+
+class B09_CheckChecker(Scene):
     def construct(self):
         h = 4.6
         w = h * 1158 / 762
         cx, cy = -6.2 + w / 2, -0.2
         shot = img("shot-tie-2026-10-21.png", cx, cy, h)
         frame = Rectangle(width=w, height=h, stroke_color=INK, stroke_width=4, fill_opacity=0).move_to([cx, cy, 0])
-        date = T("2026-10-21", 36).move_to([-4.9, -3.15, 0])
-        real = T("real screenshot", 32).move_to([-1.3, -3.15, 0])
-        self.add(date, real)
-        G(self, FadeIn(shot), Create(frame), rt=0.6)
+        self.add(T("2026-10-21", 36).move_to([-4.9, -3.15, 0]), T("real screenshot", 32).move_to([-1.3, -3.15, 0]))
         iso = Iso(3.75, -1.9, 0.8)
         box = iso.box(-1.0, -1.0, 0, 2.0, 2.0, 1.3)
         lights = VGroup(*[Dot(iso.p(-1.0, -1.0 + f * 2.0, 0.65), radius=0.08, color=GHOST) for f in (0.3, 0.7)])
-        label = T("Who checks the checker?", 36).move_to([3.7, 2.75, 0])
-        con = tag("constructed", 5.15, -3.15)
-        G(self, FadeIn(box, shift=DOWN * 0.3), FadeIn(lights), FadeIn(label), FadeIn(con), rt=0.6)
+        G(self, FadeIn(box, shift=DOWN * 0.3), FadeIn(lights), FadeIn(T("checker", 36).move_to([3.75, 2.75, 0])),
+          FadeIn(tag("constructed", 5.15, -3.15)), rt=0.6)
+        until(self, "arbitrary pick between ties")
+        G(self, FadeIn(shot), Create(frame), rt=0.6)
         until(self, "four years were tied")
         ppu = h / 762
         top, left = cy + h / 2, cx - w / 2
         hl = Rectangle(width=150 * ppu, height=118 * ppu, stroke_color=TERRA, stroke_width=6, fill_opacity=0)
         hl.move_to([left + 70 * ppu, top - 631 * ppu, 0])
         G(self, Create(hl), rt=0.6)
-        until(self, "every gold answer gets checked by hand")
-        mag = magnifier(2.6, 1.2, 0.6)
-        G(self, FadeIn(mag), rt=0.4)
-        G(self, mag.animate.shift(np.array([1.2, -0.3, 0])), rt=1.0)
-        until(self, "checker mistakes")
-        slip = paper(5.6, -0.2, 0.9, 1.1)
-        xx = cross(5.6, -0.2, s=0.18, w=7)
-        G(self, FadeIn(slip, shift=DOWN * 0.3), rt=0.4)
-        G(self, Create(xx), rt=0.4)
+        until(self, "it runs a list")
+        slips = VGroup(*[paper(2.15 + 1.05 * i, 1.75, 0.8, 0.9) for i in range(3)])
+        G(self, LaggedStart(*[FadeIn(s, shift=DOWN * 0.3) for s in slips], lag_ratio=0.25), FadeIn(T("wrong answers", 36).move_to([3.2, 0.8, 0])), rt=0.8)
+        until(self, "which should all be caught")
+        xs_ = VGroup(*[cross(2.15 + 1.05 * i, 1.75, s=0.17, w=7) for i in range(3)])
+        G(self, LaggedStart(*[Create(x) for x in xs_], lag_ratio=0.2), rt=0.6)
         finish(self)
 
 
-class B09_WhyThis(Scene):
+class B10_Resources(Scene):
     def construct(self):
         self.add(tag())
-        tilt = -0.09                     # right side (learning) leans down
-        piv = np.array([0.0, -1.2, 0])
-        fulcrum = Polygon([0, -1.25, 0], [-0.55, -2.25, 0], [0.55, -2.25, 0], fill_color=BOX_R, fill_opacity=1, stroke_color=INK, stroke_width=4)
-        plank = Rectangle(width=10.0, height=0.22, fill_color=BOX_L, fill_opacity=1, stroke_color=INK, stroke_width=4).move_to(piv + np.array([0, 0.11, 0]))
-        have = T("have", 40).move_to([-3.4, -2.6, 0])
-        learn = T("learning", 40).move_to([3.0, -2.6, 0])
-        G(self, FadeIn(fulcrum), FadeIn(plank), FadeIn(have), FadeIn(learn), rt=0.6)
-        until(self, "leans toward learning")
-        G(self, Rotate(plank, angle=tilt, about_point=piv), rt=1.0)
-
-        def on(u, lift):
-            """Point u units along the tilted plank from the pivot, `lift` above it."""
-            d = np.array([np.cos(tilt), np.sin(tilt), 0])
-            nrm = np.array([-np.sin(tilt), np.cos(tilt), 0])
-            return piv + d * u + nrm * (0.22 + lift)
-
-        until(self, "something a stranger can check")
-        mag = magnifier(-0.4, 2.0, 0.5)
-        G(self, FadeIn(mag), rt=0.4)
-        G(self, mag.animate.shift(np.array([0.8, 0, 0])), rt=0.8)
-        until(self, "Python and SQL basics")
-        py = img("python-01.png", *on(-4.1, 0.6)[:2], 1.2)
-        sq = sql_card(*on(-2.6, 0.8)[:2], 1.2, 1.6, n=3)
-        G(self, FadeIn(py, shift=DOWN * 0.5), rt=0.5)
-        G(self, FadeIn(sq, shift=DOWN * 0.5), rt=0.5)
-        until(self, "I don't have a repo")
-        iso = Iso(-3.3, 1.45, 0.5)
-        ghost_box = iso.box(-1.0, -1.0, 0, 2.0, 2.0, 1.4, CARD, CARD, CARD, sw=3)
-        gh = img("github-01.png", -4.95, 1.9, 0.8)
-        G(self, FadeIn(ghost_box), FadeIn(gh), rt=0.5)
-        until(self, "that evidence")
-        real_box = iso.box(-1.0, -1.0, 0, 2.0, 2.0, 1.4)
-        G(self, FadeIn(real_box), rt=0.6)
-        until(self, "calling Claude from my own code")
-        cl = img("claude-01.png", *on(1.55, 0.6)[:2], 1.15)
-        G(self, FadeIn(cl, shift=DOWN * 0.5), rt=0.5)
-        until(self, "building a test set")
-        led = ledger(*on(3.05, 1.05)[:2], [1, 0, 1], w=1.3, row=0.45)
-        G(self, FadeIn(led, shift=DOWN * 0.5), rt=0.5)
-        until(self, "where it fails")
-        ch = bars(*on(4.5, 0.0)[:2], (0.6, 1.1, 0.8), bw=0.22, gap=0.1)
-        G(self, FadeIn(ch[0]), LaggedStart(*[GrowFromEdge(b, DOWN) for b in ch[1]], lag_ratio=0.25), rt=0.8)
-        until(self, "small on purpose")
-        tape = iso.tape(-1.0, -1.0, 1.4, 2.0, 2.0, drop=0.5, t=0.18)
-        G(self, FadeIn(tape), rt=0.4)
+        shelf = Rectangle(width=4.6, height=0.18, fill_color=BOX_R, fill_opacity=1, stroke_color=INK, stroke_width=4).move_to([-3.6, 0.35, 0])
+        G(self, FadeIn(shelf), rt=0.4)
+        until(self, "The code is Python and SQLite")
+        py, sq = img("python-01.png", -4.7, 1.25, 1.3), img("sqlite-01.png", -2.4, 1.25, 1.9)
+        G(self, FadeIn(py, shift=DOWN * 0.4), FadeIn(sq, shift=DOWN * 0.4), rt=0.6)
+        until(self, "all free")
+        G(self, FadeIn(T("free", 40).move_to([-3.6, -0.25, 0])), Create(check(-2.75, -0.2, s=0.18, w=7)), rt=0.5)
+        until(self, "I don't have API credits yet")
+        k = key_outline(-3.6, -1.6)
+        G(self, Create(k), FadeIn(T("API key: not yet", 36).move_to([-3.6, -2.35, 0])), rt=0.6)
+        until(self, "inside Claude Code")
+        cc = img("claude-01.png", 1.0, 1.6, 1.15)
+        G(self, FadeIn(cc), FadeIn(T("Claude Code", 36).move_to([1.0, 0.45, 0])), rt=0.6)
+        until(self, "twenty fresh copies")
+        cards = VGroup(*[RoundedRectangle(width=0.62, height=0.46, corner_radius=0.08, fill_color=CARD, fill_opacity=1,
+                                          stroke_color=BAR1, stroke_width=4).move_to([3.0 + 0.7 * (i % 5), 1.9 - 0.62 * (i // 5), 0])
+                           for i in range(20)])
+        G(self, LaggedStart(*[GrowFromCenter(c) for c in cards], lag_ratio=0.05), FadeIn(T("20 copies", 36).move_to([4.4, -0.75, 0])), rt=1.1)
+        until(self, "each seeing only the rules and one question")
+        dots = VGroup(*[Dot(c.get_center(), radius=0.06, color=INK) for c in cards])
+        G(self, LaggedStart(*[GrowFromCenter(d) for d in dots], lag_ratio=0.04), rt=0.9)
+        until(self, "The API version is built and tested")
+        iso = Iso(2.6, -3.0, 0.5)
+        box = iso.box(-1.0, -1.0, 0, 2.0, 2.0, 1.1)
+        G(self, FadeIn(box, shift=DOWN * 0.3), FadeIn(T("API version", 36).move_to([4.75, -2.0, 0])), rt=0.6)
+        until(self, "runs with one command")
+        G(self, Create(check(4.75, -1.4, s=0.17, w=7)), rt=0.4)
         finish(self)
 
 
-class B10_Close(Scene):
+# Part 4 — evaluation
+
+class B11_Measure(Scene):
+    def construct(self):
+        self.add(tag())
+        rows = [("match gold", 1.6), ("keep contract", 0.2), ("wrong caught", -1.2)]
+        frames = [meter(1.2, y, 5.0, 0.6) for _, y in rows]
+        labs = [T(t, 40).move_to([-3.6, y, 0]) for t, y in rows]
+        until(self, "I measure three things")
+        G(self, FadeIn(frames[0]), FadeIn(labs[0]), rt=0.5)
+        until(self, "how many replies keep the contract")
+        G(self, FadeIn(frames[1]), FadeIn(labs[1]), rt=0.5)
+        until(self, "how many deliberately wrong answers")
+        G(self, FadeIn(frames[2]), FadeIn(labs[2]), rt=0.5)
+        until(self, "It works if every wrong answer is caught")
+        full = fill_bar(frames[2], 1.0)
+        G(self, GrowFromEdge(full, LEFT), rt=0.8)
+        G(self, Create(check(4.3, -1.2 + 0.0, s=0.2, w=8).move_to([4.35, -0.35, 0])), FadeIn(T("works", 36).move_to([5.3, -0.35, 0])), rt=0.5)
+        until(self, "It fails if a wrong answer can score as right")
+        gap = Rectangle(width=0.55, height=0.48, fill_color=CARD, fill_opacity=1, stroke_width=0).move_to([3.35, -1.2, 0])
+        G(self, FadeIn(gap), rt=0.4)
+        G(self, Create(cross(4.35, -2.1, s=0.18, w=8)), FadeIn(T("fails", 36).move_to([5.3, -2.1, 0])), rt=0.5)
+        finish(self)
+
+
+class B12_FirstResult(Scene):
+    def construct(self):
+        iw, ih = 1512, 1240
+        h = 5.4
+        w = h * iw / ih
+        cx, cy = 0.0, -0.15
+        self.add(T("2026-11-24", 36).move_to([-4.6, -3.15, 0]), T("real output", 32).move_to([4.6, -3.15, 0]))
+        shot = img("out-run-2026-11-24.png", cx, cy, h)
+        frame = Rectangle(width=w, height=h, stroke_color=INK, stroke_width=4, fill_opacity=0).move_to([cx, cy, 0])
+        G(self, FadeIn(shot), Create(frame), rt=0.6)
+        until(self, "All twenty answers matched")
+        hl = hl_row(cx, cy, w, h, ih, 1108, 1156, 0.02, 0.6)
+        G(self, Create(hl), FadeIn(T("20 / 20 match", 40).move_to([-4.6, 3.1, 0])), rt=0.6)
+        until(self, "mostly tells me my questions are easy")
+        G(self, FadeIn(T("questions too easy?", 40).move_to([4.1, 3.1, 0])), rt=0.5)
+        finish(self)
+
+
+class B13_BlindSpot(Scene):
+    def construct(self):
+        iw, ih = 1676, 642
+        w = 12.0
+        h = w * ih / iw
+        cx, cy = 0.0, -0.1
+        self.add(T("2026-11-24", 36).move_to([-4.6, -3.15, 0]), T("real output", 32).move_to([4.6, -3.15, 0]))
+        shot = img("out-check-wrong-2026-11-24.png", cx, cy, h)
+        frame = Rectangle(width=w, height=h, stroke_color=INK, stroke_width=4, fill_opacity=0).move_to([cx, cy, 0])
+        G(self, FadeIn(shot), Create(frame), rt=0.6)
+        until(self, "seven of eight wrong answers")
+        hl1 = hl_row(cx, cy, w, h, ih, 556, 602, 0.01, 0.56)
+        G(self, Create(hl1), FadeIn(T("7 of 8 caught", 40).move_to([-4.3, 3.1, 0])), rt=0.6)
+        until(self, "question sixteen")
+        hl2 = hl_row(cx, cy, w, h, ih, 326, 372, 0.01, 0.995)
+        G(self, Create(hl2), rt=0.6)
+        until(self, "Every quantity in this database is one")
+        G(self, FadeIn(T("every Quantity = 1", 40).move_to([3.9, 3.1, 0])), rt=0.5)
+        finish(self)
+
+
+class B14_Close(Scene):
     def construct(self):
         self.add(tag())
         p = pipeline(0.6)
-        name = T("CheckedSQL", 64, bold=True).move_to([0, 2.65, 0])
         self.add(Group(p["q"], p["claude"], p["sql"], p["db"], p["cmp"], *p["arrows"]))
-        G(self, FadeIn(name), GrowArrow(p["fork"][0]), GrowArrow(p["fork"][1]), rt=0.6)
+        G(self, GrowArrow(p["fork"][0]), GrowArrow(p["fork"][1]), rt=0.5)
         G(self, Create(p["ok"]), Create(p["bad"]), rt=0.5)
+        until(self, "harder questions")
+        new = VGroup(*[bubble(-5.5 + 1.0 * i, -1.6, 0.8, 0.55) for i in range(3)])
+        G(self, LaggedStart(*[GrowFromCenter(b) for b in new], lag_ratio=0.2), FadeIn(T("harder questions", 36).move_to([-4.5, -2.5, 0])), rt=0.7)
+        until(self, "quantities vary")
+        dbs = VGroup(*[cylinder(0.2 + 0.95 * i, -1.65, 0.75, 0.65) for i in range(3)])
+        G(self, LaggedStart(*[FadeIn(d, shift=DOWN * 0.2) for d in dbs], lag_ratio=0.2), FadeIn(T("new test data", 36).move_to([1.15, -2.5, 0])), rt=0.7)
+        until(self, "run it on the API")
+        k = key_outline(4.8, -1.65, color=INK, sw=7)
+        G(self, Create(k), FadeIn(T("API", 36).move_to([4.8, -2.45, 0])), rt=0.6)
         until(self, "whose mistakes you can see")
-        bad_c = np.array(p["bad"].get_center())
-        ring = Circle(radius=0.55, color=TERRA, stroke_width=7).move_to(bad_c)
-        sub = T("mistakes you can see", 44).move_to([0, -1.9, 0])
-        G(self, Create(ring), FadeIn(sub), rt=0.6)
-        G(self, p["fork"][1].animate.set_stroke(width=9), rt=0.4)
+        name = T("CheckedSQL", 64, bold=True).move_to([0, 2.65, 0])
+        ring = Circle(radius=0.55, color=TERRA, stroke_width=7).move_to(np.array(p["bad"].get_center()))
+        G(self, FadeIn(name), Create(ring), rt=0.6)
+        until(self, "I'm Yuhao Fu")
+        G(self, FadeIn(T("Yuhao Fu", 40).move_to([0, 1.85, 0])), rt=0.5)
         finish(self)

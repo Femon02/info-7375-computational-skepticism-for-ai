@@ -1,21 +1,25 @@
 # TYPECHECK.md — GATE T
 
-Reel: `checkedsql-pitch`  |  Checked: 2026-10-21T13:43  |  Overall: PASS  |  Beats checked: 10  |  FAILs: 0
+Reel: `checkedsql-film`  |  Checked: 2026-11-24T18:42  |  Overall: PASS  |  Beats checked: 14  |  FAILs: 0
 
 Spec: `skills/make/kerning/reference/type-spec.md` §8.  Floor: 1.9% frame-height.  Contrast: 4.5:1 WCAG.  Kern threshold: 3.5× expected advance.  Wordy budget: 2 elements.
 
 | beat | lane | polarity | worst finding | status | fix |
 |------|------|----------|---------------|--------|-----|
-| B01 | manim | light | min-size §8.1: min text-run height 41px >= floor 41px | PASS | — |
-| B02 | manim | light | min-size §8.1: min text-run height 50px >= floor 41px | PASS | — |
-| B03 | manim | light | min-size §8.1: min text-run height 50px >= floor 41px (individual-char fallback at 2×) | PASS | — |
-| B04 | manim | light | min-size §8.1: min text-run height 50px >= floor 41px (individual-char fallback at 2×) | PASS | — |
-| B05 | manim | light | min-size §8.1: min text-run height 41px >= floor 41px | PASS | — |
-| B06 | manim | light | min-size §8.1: min text-run height 50px >= floor 41px (individual-char fallback at 2×) | PASS | — |
-| B07 | manim | light | min-size §8.1: min text-run height 327px >= floor 41px | PASS | — |
-| B08 | manim | light | min-size §8.1: min text-run height 49px >= floor 41px (individual-char fallback at 2×) | PASS | — |
-| B09 | manim | light | min-size §8.1: min text-run height 41px >= floor 41px | PASS | — |
-| B10 | manim | light | min-size §8.1: min text-run height 41px >= floor 41px | PASS | — |
+| B01 | manim | light | min-size §8.1: min text-run height 50px >= floor 41px | PASS | — |
+| B02 | manim | light | min-size §8.1: min text-run height 58px >= floor 41px | PASS | — |
+| B03 | manim | light | min-size §8.1: min text-run height 66px >= floor 41px | PASS | — |
+| B04 | manim | light | min-size §8.1: min text-run height 56px >= floor 41px | PASS | — |
+| B05 | manim | light | min-size §8.1: min text-run height 57px >= floor 41px | PASS | — |
+| B06 | manim | light | min-size §8.1: min text-run height 57px >= floor 41px | PASS | — |
+| B07 | manim | light | min-size §8.1: min text-run height 57px >= floor 41px | PASS | — |
+| B08 | manim | light | min-size §8.1: min text-run height 50px >= floor 41px | PASS | — |
+| B09 | manim | light | min-size §8.1: min text-run height 49px >= floor 41px (individual-char fallback at 2×) | PASS | — |
+| B10 | manim | light | min-size §8.1: min text-run height 47px >= floor 41px (individual-char fallback at 2×) | PASS | — |
+| B11 | manim | light | min-size §8.1: min text-run height 63px >= floor 41px | PASS | — |
+| B12 | manim | light | min-size §8.1: min text-run height 64px >= floor 41px | PASS | — |
+| B13 | manim | light | min-size §8.1: min text-run height 50px >= floor 41px (individual-char fallback at 2×) | PASS | — |
+| B14 | manim | light | min-size §8.1: min text-run height 41px >= floor 41px | PASS | — |
 
 ---
 
@@ -29,13 +33,13 @@ Spec: `skills/make/kerning/reference/type-spec.md` §8.  Floor: 1.9% frame-heigh
 | Check | Beats checked | FAILs |
 |-------|---------------|-------|
 | no-wordy-card §8.5 | 0 | 0 |
-| min-size §8.1 | 10 | 0 |
-| overflow §8.2 | 10 | 0 |
-| contrast §8.3 | 10 | 0 |
-| contrast-local §8.3b | 10 | 0 |
-| bbox-overlap §8.6b | 10 | 0 |
-| card-clip §8.13 | 10 | 0 |
-| kerning §8.4 | 10 | 0 |
+| min-size §8.1 | 14 | 0 |
+| overflow §8.2 | 14 | 0 |
+| contrast §8.3 | 14 | 0 |
+| contrast-local §8.3b | 14 | 0 |
+| bbox-overlap §8.6b | 14 | 0 |
+| card-clip §8.13 | 14 | 0 |
+| kerning §8.4 | 14 | 0 |
 | redundancy §8.10 (advisory) | 0 | 0 (advisory — no exit effect) |
 
 ---

@@ -1,0 +1,191 @@
+1
+00:00:00,000 --> 00:00:04,948
+When you ask an AI to write SQL, you get a query that looks right.
+
+2
+00:00:04,968 --> 00:00:08,561
+My project, CheckedSQL, tells you when it isn't.
+
+3
+00:00:08,581 --> 00:00:16,390
+It takes the AI's query, runs it on a real database, and compares the answer with one I checked by hand.
+
+4
+00:00:16,410 --> 00:00:17,843
+Why would anyone care?
+
+5
+00:00:17,863 --> 00:00:19,693
+A wrong query doesn't crash.
+
+6
+00:00:19,713 --> 00:00:24,052
+It returns a number that looks just as confident as the right one.
+
+7
+00:00:24,072 --> 00:00:32,110
+CheckedSQL makes those mistakes visible, and it goes one step further: it checks whether the checker itself can be fooled.
+
+8
+00:00:32,130 --> 00:00:35,400
+Others have built big benchmarks for this.
+
+9
+00:00:35,420 --> 00:00:41,587
+Spider, from 2018, has about ten thousand questions over two hundred databases.
+
+10
+00:00:41,607 --> 00:00:46,756
+BIRD, from 2023, has over twelve thousand on larger, messier data.
+
+11
+00:00:46,776 --> 00:00:54,980
+In BIRD's original paper, ChatGPT got about forty percent right, against ninety-three percent for people.
+
+12
+00:00:55,000 --> 00:00:58,921
+Researchers also found that the checker can be wrong.
+
+13
+00:00:58,941 --> 00:01:10,597
+In 2020, Zhong, Yu and Klein showed that running a query on just one database can give a false positive: a wrong query can happen to return the right answer.
+
+14
+00:01:10,617 --> 00:01:14,390
+Their fix was to test each query on many databases.
+
+15
+00:01:14,410 --> 00:01:21,656
+There are also tools, like the open-source library Vanna, that let you chat with your database and get SQL back.
+
+16
+00:01:21,676 --> 00:01:23,472
+They help you write queries.
+
+17
+00:01:23,492 --> 00:01:27,170
+They don't hand you a record of which answers were wrong.
+
+18
+00:01:27,190 --> 00:01:27,974
+So why mine?
+
+19
+00:01:27,994 --> 00:01:31,527
+It isn't a new benchmark, and it isn't more accurate.
+
+20
+00:01:31,547 --> 00:01:39,369
+It's small enough that one person can read every question, check every answer, and rerun everything with one command.
+
+21
+00:01:39,389 --> 00:01:43,190
+And it puts the checker's own blind spots in the results.
+
+22
+00:01:43,210 --> 00:01:44,797
+Here's how I built it.
+
+23
+00:01:44,817 --> 00:01:50,347
+The data is Chinook, a free public sample database of a made-up music store.
+
+24
+00:01:50,367 --> 00:01:58,380
+I wrote twenty English questions, and for each one a gold SQL answer, and I checked every gold answer by hand.
+
+25
+00:01:58,400 --> 00:02:08,752
+For each question, the model sees the database schema and a strict contract: reply with exactly one SELECT statement, or the words cannot answer.
+
+26
+00:02:08,772 --> 00:02:18,480
+CheckedSQL checks the contract, runs the query on a read-only copy with a five second limit, and compares the rows with the gold answer.
+
+27
+00:02:18,500 --> 00:02:19,949
+Then it checks itself.
+
+28
+00:02:19,969 --> 00:02:24,222
+It flags any gold answer that is an arbitrary pick between ties.
+
+29
+00:02:24,242 --> 00:02:30,299
+That happened to me on October twenty-first: four years were tied at eighty-three invoices.
+
+30
+00:02:30,319 --> 00:02:35,440
+And it runs a list of deliberately wrong answers, which should all be caught.
+
+31
+00:02:35,460 --> 00:02:37,011
+Do I have what I need?
+
+32
+00:02:37,031 --> 00:02:40,509
+The code is Python and SQLite, and it's all free.
+
+33
+00:02:40,529 --> 00:02:51,933
+I don't have API credits yet, so this run used Claude Opus five point five inside Claude Code: twenty fresh copies, each seeing only the rules and one question.
+
+34
+00:02:51,953 --> 00:02:57,930
+The API version is built and tested, and it runs with one command once I have a key.
+
+35
+00:02:57,950 --> 00:02:59,645
+How will I know it worked?
+
+36
+00:02:59,665 --> 00:03:10,201
+I measure three things: how many answers match the gold answer, how many replies keep the contract, and how many deliberately wrong answers the checker catches.
+
+37
+00:03:10,221 --> 00:03:12,905
+It works if every wrong answer is caught.
+
+38
+00:03:12,925 --> 00:03:15,940
+It fails if a wrong answer can score as right.
+
+39
+00:03:15,960 --> 00:03:17,325
+Here's the real run.
+
+40
+00:03:17,345 --> 00:03:21,549
+All twenty answers matched, and all twenty kept the contract.
+
+41
+00:03:21,569 --> 00:03:26,950
+But a perfect score on twenty questions mostly tells me my questions are easy.
+
+42
+00:03:26,970 --> 00:03:31,773
+The more useful result: the checker caught seven of eight wrong answers.
+
+43
+00:03:31,793 --> 00:03:36,529
+The one it missed is question sixteen, revenue as price times quantity.
+
+44
+00:03:36,549 --> 00:03:42,491
+Every quantity in this database is one, so a query that forgets it gets the same numbers.
+
+45
+00:03:42,511 --> 00:03:46,510
+That's the false positive Zhong and colleagues warned about.
+
+46
+00:03:46,530 --> 00:03:53,513
+Next, I'll add harder questions and test data where quantities vary, then run it on the API.
+
+47
+00:03:53,533 --> 00:03:59,450
+CheckedSQL: not an AI that's always right, but one whose mistakes you can see.
+
+48
+00:03:59,470 --> 00:04:00,440
+I'm Yuhao Fu.

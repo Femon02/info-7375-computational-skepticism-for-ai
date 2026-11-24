@@ -2,9 +2,9 @@
 
 | field | value |
 |---|---|
-| master | checkedsql-pitch.mp4 |
-| integrated_lufs | -24.00 |
-| true_peak_dbtp | -4.47 |
+| master | checkedsql-film.mp4 |
+| integrated_lufs | -23.91 |
+| true_peak_dbtp | -4.25 |
 | lufs_window | -28.0 to -18.0 |
 | true_peak_ceil | -1.0 |
 | failures | 0 |
@@ -12,8 +12,8 @@
 
 ## Notes
 
-- integrated_lufs: -24.00  (window: -28.0 to -18.0)
-- true_peak_dbtp: -4.47  (ceiling: -1.0)
+- integrated_lufs: -23.91  (window: -28.0 to -18.0)
+- true_peak_dbtp: -4.25  (ceiling: -1.0)
 - per-beat silence: all narration beats have audio ✓
 
 GATE LOUDNESS: PASS

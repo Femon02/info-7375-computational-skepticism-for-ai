@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""make_captions.py — checkedsql-pitch.srt from the beat sheet.
+"""make_captions.py — checkedsql-film.srt from the beat sheet.
 
 Cue text is the narration, verbatim, one cue per sentence. Each beat's window is its measured audio
 (actual_duration_s, in film order); inside a beat, a sentence's time is its share of the characters.
